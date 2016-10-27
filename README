@@ -5,3 +5,14 @@ https://docs.google.com/document/d/1BbIfJ1fhPrsxQbZ8hdYZCJoMNF2BcbYGtzgiPAS6pt4/
 
 
 Once agreed upon these should be provided within this project.
+
+
+Tasks to be completed
+
+1) Module with functions to parse the url and provide a list of variables
+
+
+2) Module with functions which for a given set of varibles provide a resonse to the query as specified in the google docs.
+
+
+These modules can should be designt to be included into a python script belonging to the databases or decentralized authority. It is the responcability for each entity to match the given variables with their database.
