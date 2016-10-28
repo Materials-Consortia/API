@@ -11,7 +11,7 @@ The goal of this document is to show how totranslate use cases into specific API
 1. Request:
 
   ```
-  curl http://db.org/minapi/v1/<TBD>
+  curl http://example.com/minapi/all/
   ```
 
 2. Responses:
@@ -19,7 +19,31 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-      <TBD>
+      "query": {
+        "representation": "/all/",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z"
+        "data_returned": "10",
+        "data_available": "10",
+        "last_id": "molecule:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+      },
+      "data": [
+        {
+          "type": "structure",
+          "properties": { "formula": "Au2", ...},
+          "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20151028T080851Z"
+        },
+        ...
+        {
+          "type": "molecule",
+          "properties": { "InChIKey": "BQJCRHHNABKAKU-KBQPJGBKSA-N", ...},
+          "local_id": "molecule:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/molecules/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20151028T080891Z"
+        }
+      ]
     }
     ```
 
@@ -27,10 +51,15 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-        "records": {
-            "total": 0,
-            "records": []
-        }
+      "query": {
+        "representation": "/all/",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z"
+        "data_returned": 0,
+        "data_available": 0,
+        "last_id": null
+      },
+      "data": []
     }
     ```
 <hr>
@@ -39,65 +68,74 @@ The goal of this document is to show how totranslate use cases into specific API
 1. Request:
 
   ```
-  curl http://db.org/minapi/v1/<TBD>
+  curl http://example.com/minapi/structures/
   ```
 
 2. Response
   1. Case: Knows what a structure is.
 
-  1. Case: Has structure records:
+    1. Case: Has structure records:
 
-    ```
-    <NOT ACTUAL SPEC, SHOULD BE MODIFIED PER FINAL WORKSHOP SPEC>
-    {
-      "records": {
-        "count": 3023,
-        "records": [
-          {"type": "db.org:structure", "id": "db.org:structure:Pqasf1"},
-          {"type": "db.org:molecule", "id": "db.org:molecule:23Zasf"},
+      ```
+      {
+        "query": {
+          "representation": "/structures/",
+          "api_version": "v1",
+          "time_stamp": "20161028T080851Z",
+          "data_returned": "10",
+          "data_available": "10",
+          "last_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+        },
+        "data": [
+          {
+            "type": "structure",
+            "properties": { "formula": "Au2", ...},
+            "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "last_modified": "20161028T080851Z"
+          },
           ...
-          {"type": "db.org:structure", "id": "db.org:structure:234Vas"}
+          {
+            "type": "structure",
+            "properties": { "formula": "Au2", ...},
+            "local_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "url": "http://example.db/structs/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "last_modified": "20161028T080891Z"
+          }
         ]
       }
+      ```
+
+    1. Case: Does not have structure records:
+
+    ```
+    {
+      "query": {
+        "representation": "/structures/",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z"
+        "data_returned": 0,
+        "data_available": 0,
+        "last_id": null,
+      },
+      "data": []
     }
     ```
 
-    2. Case: Does not have structure records:
+  1. Case: Does not implement 'structures' endpoint:
 
-      ```
-      {
-          "records": {
-              "total": 0,
-              "records": []
-          }
-      }
-      ```
+    ```
+    <404 Response Code>
+    ```
 
-    1. Case: Does not know what a structure is:
+## "Give me all records updated after 2016-10-26 05:30."
 
-      ```
-      {
-          "records": {
-              "total": 0,
-              "records": []
-          }
-      }
-      ```
+**FILTER NEEDS TO BE HARMONIZED TO API SPECIFICATION**
 
-## "Give me all molecules."
 1. Request:
 
   ```
-  curl http://db.org/api?action=query&entity_type=db.org:molecule
-  ```
-
-2. Response: as per structures.
-
-## "Give me records updated after 2016-10-26 05:30."
-1. Request:
-
-  ```
-  curl http://db.org/api?action=query&q=updated:gt_201610260530
+  curl 'http://example.com/minapi/all/?filter=last_modified:%3E=201501010000'
   ```
 
 2. Response:
@@ -106,15 +144,31 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-      "records": {
-        "count": 3023,
-        "records": [
-          {"type": "db.org:structure", "id": "db.org:structure:Pqasf1"},
-          {"type": "db.org:molecule", "id": "db.org:molecule:23Zasf"},
-          ...
-          {"type": "db.org:structure", "id": "db.org:structure:234Vas"}
-        ]
-      }
+      "query": {
+          "representation": "/all/?filter=last_modified:%3E=201501010000",
+          "api_version": "v1",
+          "time_stamp": "20161028T080851Z"
+          "data_returned": "10",
+          "data_available": "10",
+          "last_id": "molecule:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+      },
+      "data": [
+        {
+          "type": "structure",
+          "properties": { "formula": "Au2", ...},
+          "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20151028T080851Z"
+        },
+        ...
+        {
+          "type": "molecule",
+          "properties": { "InChIKey": "BQJCRHHNABKAKU-KBQPJGBKSA-N", ...},
+          "local_id": "molecule:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/molecules/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20151028T080891Z"
+        }
+      ]
     }
     ```
 
@@ -122,10 +176,15 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-      "records": {
-        "count": 0,
-        "records": []
-      }
+      "query": {
+        "representation": "/all/?filter=last_modified:%3E=201501010000",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z"
+        "data_returned": 0,
+        "data_available": 0,
+        "last_id": null
+      },
+      "data": []
     }
     ```
 
@@ -133,7 +192,7 @@ The goal of this document is to show how totranslate use cases into specific API
 1. Request
 
   ```
-  curl http://db.org/api?action=query&q=[entity_type:db.org:structure] [melting_point < 200] [formula_contains:Au]
+  curl http://example.com/minapi/structures/?filter=(melting_point:%3C200)%20AND%20(formula:~Au)
   ```
 
 2. Response
@@ -141,14 +200,31 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-      "records": {
-        "count": 3023,
-        "records": [
-          {"type": "db.org:structure", "id": "db.org:structure:Pqasf1"},
-          ...
-          {"type": "db.org:structure", "id": "db.org:structure:234Vas"}
-        ]
-      }
+      "query": {
+        "representation": "/structures/?filter=(melting_point:%3C200)%20AND%20(formula:~Au)",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z",
+        "data_returned": 10,
+        "data_available": 10,
+        "last_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+      },
+      "data": [
+        {
+          "type": "structure",
+          "properties": { "formula": "Au2", ...},
+          "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20161028T080851Z"
+        },
+        ...
+        {
+          "type": "structure",
+          "properties": { "formula": "Au2", ...},
+          "local_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "url": "http://example.db/structs/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+          "last_modified": "20161028T080891Z"
+        }
+      ]
     }
     ```
 
@@ -156,10 +232,15 @@ The goal of this document is to show how totranslate use cases into specific API
 
     ```
     {
-      "records": {
-        "count": 0,
-        "records": []
-      }
+      "query": {
+        "representation": "/all/?filter=last_modified:%3E=201501010000",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z"
+        "data_returned": 0,
+        "data_available": 0,
+        "last_id": null
+      },
+      "data": []
     }
     ```
 
@@ -168,7 +249,7 @@ The goal of this document is to show how totranslate use cases into specific API
 1. Request:
 
   ```
-  curl http://db.org/api?action=query&q=[entity_type:db.org:structure]&fields=field_1,field_2
+  curl http://example.com/minapi/structures/?fields=field_1,field_2
   ```
 
 2. Response:
@@ -177,16 +258,31 @@ The goal of this document is to show how totranslate use cases into specific API
 
       ```
       {
-        "records": {
-          "count": 3023,
-          "records": [
-            {"type": "db.org:structure", "id": "db.org:structure:Pqasf1",
-             "fields": {"field_1": "value_1", "field_2": "value_2"}},
-            ...
-            {"type": "db.org:structure", "id": "db.org:structure:Pqasf1",
-             "fields": {"field_1": "value_1", "field_2": null}},
-          ]
-        }
+        "query": {
+          "representation": "/structures/?fields=field_1,field_2",
+          "api_version": "v1",
+          "time_stamp": "20161028T080851Z",
+          "data_returned": 10,
+          "data_available": 10,
+          "last_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+        },
+        "data": [
+          {
+            "type": "structure",
+            "properties": { "field_1": "value1", "field_2": "value2"},
+            "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "last_modified": "20161028T080851Z"
+          },
+          ...
+          {
+            "type": "structure",
+            "properties": { "field_1": "value1", "field_2": "value2"},
+            "local_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "url": "http://example.db/structs/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+            "last_modified": "20161028T080891Z"
+          }
+        ]
       }
       ```
 
@@ -194,26 +290,47 @@ The goal of this document is to show how totranslate use cases into specific API
 
         ```
         {
-          "records": {
-            "count": 3023,
-            "records": [
-              {"type": "db.org:structure", "id": "db.org:structure:Pqasf1",
-               "fields": {"field_1": "value_1", "field_2": null}},
-              ...
-              {"type": "db.org:structure", "id": "db.org:structure:Pqasf1",
-               "fields": {"field_1": "value_1", "field_2": null}},
-            ]
-          }
+          "query": {
+            "representation": "/structures/?fields=field_1,field_2",
+            "api_version": "v1",
+            "time_stamp": "20161028T080851Z",
+            "data_returned": 10,
+            "data_available": 10,
+            "last_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+          },
+          "data": [
+            {
+              "type": "structure",
+              "properties": { "field_1": "value1", "field_2": null},
+              "local_id": "struct:abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+              "url": "http://example.db/structs/abce4fae-7dec-11d0-a765-00a0c91e6bf6",
+              "last_modified": "20161028T080851Z"
+            },
+            ...
+            {
+              "type": "structure",
+              "properties": { "field_1": "value1", "field_2": null},
+              "local_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+              "url": "http://example.db/structs/f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+              "last_modified": "20161028T080891Z"
+            }
+          ]
         }
         ```
+
   2. Does not have structures:
     
     ```
     {
-      "records": {
-        "count": 0,
-        "records": []
-      }
+      "query": {
+        "representation": "/structures/?fields=field_1,field_2",
+        "api_version": "v1",
+        "time_stamp": "20161028T080851Z",
+        "data_returned": 0,
+        "data_available": 0,
+        "last_id": "struct:f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+      },
+      "data": []
     }
     ```
 
@@ -221,49 +338,53 @@ The goal of this document is to show how totranslate use cases into specific API
 1. Request:
 
   ```
-  curl http://db.org/api?action=introspect&fields=api_version
-  ```
-2. Response:
-
-  ```
-  {"api_version": 1.2}
-  ```
-
-## "Give me the types of entities you know about."
-1. Request:
-
-  ```
-  curl http://db.org/api?action=introspect&fields=entity_types
-  ```
-2. Response:
-
-  ```
-  {"entity_types": ['structure', 'molecule', 'db.org:custom_entity_type']}
-  ```
-
-## "Give me the structure properties you know about for structures and molecules."
-1. Request:
-
-  ```
-  curl http://db.org/api?action=introspect&filter=[entity_type:structure,molecule]&fields=properties
+  curl http://example.com/minapi/info/
   ```
 2. Response:
 
   ```
   {
-    "properties": {
-      "structure": {
-        "properties": [
-          {"property_id": "db.org:chemical_formula", "description": ...},
-          ...
-          {"property_id": "db.org:custom_structure_property", "description": ...}
-        ]
-      }
-      "molecule": {
-        {"property_id": "db.org:chemical_formula", "description": ...},
-        ...
-        {"property_id": "db.org:custom_molecule_property", "description": ...}
-      }
-    }
+    "api_version": "1.2.1",
+    "endpoints": [
+      "/all",
+      "/info",
+      "/structures",
+      "/molecules"
+    ]
+    ...
   }
-  `
+  ```
+
+## "Give me the endpoints you provide."
+1. Request:
+
+  ```
+  curl http://example.com/minapi/info/
+  ```
+
+2. Response:
+
+  ```
+  {
+    "api_version": "1.2.1",
+    "endpoints": [
+      "/all",
+      "/info",
+      "/structures",
+      "/molecules"
+    ]
+    ...
+  }
+  ```
+
+## "Give me the info for 'structure' entries.
+1. Request:
+
+  ```
+  curl http://example.com/minapi/structures/info
+  ```
+2. Response:
+
+  ```
+  ?
+  ```
