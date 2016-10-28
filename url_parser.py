@@ -56,6 +56,14 @@ def response():
 """ ######################  Test program ##################"""
 
 url="http://example.com/minapi/v1/structures?elements=Si,Al,O&nelements=4&id=true&format=json&info=true&email=user@domain.org&key=hhj667"
+
+
+"""
+url="http://example.com/minapi/v1/structures?filter={'reduced_chemical_formula':'SiO2'}"
+url="http://example.com/minapi/v1/structures?chemical_formula=SiO2&limit=100"
+"""
+
+
 variables=get_vars(url)
 print search_vars
 usage_message()
