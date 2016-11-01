@@ -23,11 +23,11 @@ SH_OUTP_FILES = ${SH_FILES:${TEST_DIR}/%.sh=${OUTP_DIR}/%.out}
 DIFF_FILES = $(sort ${TEST_DIFF_FILES} ${OPT_DIFF_FILES} ${SH_DIFF_FILES})
 OUTP_FILES = $(sort ${TEST_OUTP_FILES} ${OPT_OUTP_FILES} ${SH_OUTP_FILES})
 
-.PHONY: all clean cleanAll distclean test tests out outputs
+.PHONY: all clean cleanAll distclean check test tests out outputs
 
 all: tests
 
-test tests: ${DIFF_FILES}
+check test tests: ${DIFF_FILES}
 
 out outputs: ${OUTP_FILES}
 
