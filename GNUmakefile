@@ -5,6 +5,27 @@
 #$URL: svn+ssh://saulius-grazulis.lt/home/saulius/svn-repositories/makefiles/Makefile-multiscript-testing $
 #------------------------------------------------------------------------
 
+# Run tests in a test directory (tests/cases by default) and report if
+# all tests pass.
+
+# USAGE:
+#     make clean
+#     make distclean
+#     make tests
+#     make
+
+#------------------------------------------------------------------------------
+
+# Include local configuration files from this directory:
+
+MAKECONF_FILES = ${filter-out %~, ${wildcard Makeconf*}}
+
+ifneq ("${MAKECONF_FILES}","")
+include ${MAKECONF_FILES}
+endif
+
+#------------------------------------------------------------------------------
+
 TEST_DIR = tests/cases
 OUTP_DIR = tests/outputs
 
@@ -23,9 +44,23 @@ SH_OUTP_FILES = ${SH_FILES:${TEST_DIR}/%.sh=${OUTP_DIR}/%.out}
 DIFF_FILES = $(sort ${TEST_DIFF_FILES} ${OPT_DIFF_FILES} ${SH_DIFF_FILES})
 OUTP_FILES = $(sort ${TEST_OUTP_FILES} ${OPT_OUTP_FILES} ${SH_OUTP_FILES})
 
-.PHONY: all clean cleanAll distclean check test tests out outputs
+.PHONY: all
 
 all: tests
+
+#------------------------------------------------------------------------------
+
+# Include Makefiles with additional rules for this directory:
+
+MAKELOCAL_FILES = ${filter-out %~, ${wildcard Makelocal*}}
+
+ifneq ("${MAKELOCAL_FILES}","")
+include ${MAKELOCAL_FILES}
+endif
+
+#------------------------------------------------------------------------------
+
+.PHONY: check test tests out outputs
 
 check test tests: ${DIFF_FILES}
 
@@ -115,6 +150,8 @@ listdiff: ## test
 	    true
 
 #------------------------------------------------------------------------------
+
+.PHONY: clean distclean cleanAll
 
 clean:
 	rm -f ${DIFF_FILES}
