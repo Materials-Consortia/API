@@ -1,0 +1,20 @@
+#---*- Makefile -*-------------------------------------------------------
+
+# Download and build tools and external depedencies necessary for this
+# directory.
+
+GRAMMATICA_VERSION = 1.6
+GRAMMATICA_SRV = https://github.com/cederberg/grammatica/releases
+GRAMMATICA_LOC = ${GRAMMATICA_SRV}/download/v${GRAMMATICA_VERSION}
+GRAMMATICA_URL = ${GRAMMATICA_LOC}/grammatica-${GRAMMATICA_VERSION}.zip
+GRAMMATICA_LOG = tools/grammatica-${GRAMMATICA_VERSION}.log
+GRAMMATICA_ZIP = tools/grammatica-${GRAMMATICA_VERSION}.zip
+
+grammatica: ${GRAMMATICA_LOG}
+
+${GRAMMATICA_LOG}:
+	test -f ${GRAMMATICA_ZIP} || wget -O ${GRAMMATICA_ZIP} ${GRAMMATICA_URL}
+	cd $(dir $@) && rm -rf $(notdir $(basename $@))
+	cd $(dir $@) && unzip $(notdir ${GRAMMATICA_ZIP})
+	cd $(dir $@); ( set -uex; cd $(notdir $(basename $@)); ant -k ) 2>&1 \
+		| tee $(notdir $@)
