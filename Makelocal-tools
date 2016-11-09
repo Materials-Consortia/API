@@ -34,6 +34,6 @@ grammatiker: ${GRAMMATIKER_LOG}
 ${GRAMMATIKER_LOG}: ${GRAMMATICA_LOG}
 	svn co -r ${GRAMMATIKER_REV} ${GRAMMATIKER_URL} ${GRAMMATIKER_DIR} \
 	2>&1 | tee $@
-	${MAKE} -C ${GRAMMATIKER_DIR} \
-		GRAMMATIKA_JARS=$$(find ${GRAMMATICA_DIR} -name \*.jar | sort -u | tr "\n" ":") \
-	2>&1 | tee $@
+	test -d ${GRAMMATIKER_DIR} && ${MAKE} -C ${GRAMMATIKER_DIR} \
+		GRAMMATICA_JARS=$$(find ${GRAMMATICA_DIR} -name \*.jar | sort -u | tr "\n" ":") \
+	2>&1 | tee -a $@
