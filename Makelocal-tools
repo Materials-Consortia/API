@@ -9,7 +9,7 @@ tools: grammatica grammatiker
 
 # Local installation of Grammatica:
 
-GRAMMATICA_VERSION = 1.6
+GRAMMATICA_VERSION ?= 1.6
 GRAMMATICA_SRV = https://github.com/cederberg/grammatica/releases
 GRAMMATICA_LOC = ${GRAMMATICA_SRV}/download/v${GRAMMATICA_VERSION}
 GRAMMATICA_URL = ${GRAMMATICA_LOC}/grammatica-${GRAMMATICA_VERSION}.zip
@@ -48,7 +48,7 @@ DISTCLEAN_TARGETS += distclean-grammatica
 
 # Local installation of 'grammatiker':
 
-GRAMMATIKER_REV = 129
+GRAMMATIKER_REV ?= 129
 GRAMMATIKER_URL = svn://saulius-grazulis.lt/grammatiker/trunk
 GRAMMATIKER_LOG = tools/grammatiker-r${GRAMMATIKER_REV}.log
 GRAMMATIKER_DIR = tools/$(notdir $(basename ${GRAMMATIKER_LOG}))
