@@ -32,8 +32,8 @@ Term = Atom, [Spaces], [ AND, [Spaces], Term ] ;
 
 Atom = [ NOT, [Spaces] ], ( Comparison |
        '(', [Spaces], Comparison, 
-            [Spaces], [ ( AND | OR ), 
-            [Spaces], Comparison, [Spaces] ], ')' );
+            [Spaces], { ( AND | OR ), 
+            [Spaces], Comparison, [Spaces] }, ')' );
 
 (* OperatorComparison operator tokens: *)
 
