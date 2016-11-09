@@ -1,7 +1,15 @@
 
 (* The top-level 'filter' rule: *)
 
-Filter = Value, [ Spaces ], { Operator, [ Spaces ],  Value, [ Spaces ] } ;
+Filter = 
+    Keyword, [ Spaces ],
+    Value, [ Spaces ], { Operator, [ Spaces ],  Value, [ Spaces ] } ;
+
+(* Keywords *)
+
+Keyword = "filter=" ;
+
+(* Values *)
 
 Value = Identifier | Number ;
 

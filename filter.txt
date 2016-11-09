@@ -1,1 +1,1 @@
-a = +.1e8 AND c = 10
+filter=a = +.1e8 AND c = 10
