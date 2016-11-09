@@ -10,7 +10,7 @@ Keyword = "filter=" ;
 
 (* Values *)
 
-Value = Identifier | Number ;
+Value = Identifier | Number | String ;
 
 (* The white-space: *)
 
@@ -49,6 +49,14 @@ Letter =
     'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' |
     'w' | 'x' | 'y' | 'z' | '_'
 ;
+
+(* Strings: *)
+
+String = '"', { EscapedChar }, '"' ;
+
+EscapedChar = UnescapedChar | '\', '"' | '\', '\' ;
+
+UnescapedChar = Letter | Digit | Space ;
 
 (* Number token syntax: *)
 
