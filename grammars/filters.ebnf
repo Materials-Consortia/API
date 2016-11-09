@@ -56,7 +56,13 @@ String = '"', { EscapedChar }, '"' ;
 
 EscapedChar = UnescapedChar | '\', '"' | '\', '\' ;
 
-UnescapedChar = Letter | Digit | Space ;
+UnescapedChar = Letter | Digit | Space | Punctuator ;
+
+Punctuator =
+    '!' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | 
+    '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
+    ']' | '^' | '`' | '{' | '|' | '}' | '~'
+;
 
 (* Number token syntax: *)
 
