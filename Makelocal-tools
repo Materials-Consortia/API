@@ -3,18 +3,37 @@
 # Download and build tools and external depedencies necessary for this
 # directory.
 
+# Local installation of Grammatica:
+
 GRAMMATICA_VERSION = 1.6
 GRAMMATICA_SRV = https://github.com/cederberg/grammatica/releases
 GRAMMATICA_LOC = ${GRAMMATICA_SRV}/download/v${GRAMMATICA_VERSION}
 GRAMMATICA_URL = ${GRAMMATICA_LOC}/grammatica-${GRAMMATICA_VERSION}.zip
 GRAMMATICA_LOG = tools/grammatica-${GRAMMATICA_VERSION}.log
-GRAMMATICA_ZIP = tools/grammatica-${GRAMMATICA_VERSION}.zip
+GRAMMATICA_DIR = $(shell cd $(basename ${GRAMMATICA_LOG}); pwd)
+GRAMMATICA_ZIP = ${GRAMMATICA_DIR}/grammatica-${GRAMMATICA_VERSION}.zip
 
 grammatica: ${GRAMMATICA_LOG}
 
 ${GRAMMATICA_LOG}:
 	test -f ${GRAMMATICA_ZIP} || wget -O ${GRAMMATICA_ZIP} ${GRAMMATICA_URL}
 	cd $(dir $@) && rm -rf $(notdir $(basename $@))
-	cd $(dir $@) && unzip $(notdir ${GRAMMATICA_ZIP})
+	cd $(dir $@) && unzip ${GRAMMATICA_ZIP}
 	cd $(dir $@); ( set -uex; cd $(notdir $(basename $@)); ant -k ) 2>&1 \
 		| tee $(notdir $@)
+
+# Local installation of 'grammatiker':
+
+GRAMMATIKER_REV = 119
+GRAMMATIKER_URL = svn://saulius-grazulis.lt/grammatiker/trunk
+GRAMMATIKER_LOG = tools/grammatiker-r${GRAMMATIKER_REV}.log
+GRAMMATIKER_DIR = tools/$(notdir $(basename ${GRAMMATIKER_LOG}))
+
+grammatiker: ${GRAMMATIKER_LOG}
+
+${GRAMMATIKER_LOG}: ${GRAMMATICA_LOG}
+	svn co -r ${GRAMMATIKER_REV} ${GRAMMATIKER_URL} ${GRAMMATIKER_DIR} \
+	2>&1 | tee $@
+	${MAKE} -C ${GRAMMATIKER_DIR} \
+		GRAMMATIKA_JARS=$$(find ${GRAMMATICA_DIR} -name \*.jar | sort -u | tr "\n" ":") \
+	2>&1 | tee $@
