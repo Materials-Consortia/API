@@ -80,7 +80,7 @@ endif
 GEN_DIR = generated
 GRAM_DIR = grammars
 
-GRAMMAR ?= ${GRAM_DIR}/filters.ebnf
+GRAMMAR ?= ${GRAM_DIR}/flat-filters.ebnf
 GRAMMAT ?= ${GRAMMAR:${GRAM_DIR}/%.ebnf=${GEN_DIR}/%.g}
 TEXT_TO_PARSE ?= filter.txt
 
