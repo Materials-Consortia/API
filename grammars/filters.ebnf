@@ -18,10 +18,6 @@ Space = ' ' | '\t' ;
 
 Spaces = Space, { Space } ;
 
-(* OperatorComparison operator tokens: *)
-
-Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
-
 (* Boolean relations: *)
 
 AND = "AND" ; (* a hort-hand for: AND = 'A', 'N', 'D' *)
@@ -33,6 +29,10 @@ OR = "OR" ;
 Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
 
 Term = Comparison, [Spaces], [ AND, [Spaces], Term ] ;
+
+(* OperatorComparison operator tokens: *)
+
+Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
 
 Comparison = Value, [Spaces], Operator, [Spaces], Value |
              NOT, [Spaces], Comparison |
