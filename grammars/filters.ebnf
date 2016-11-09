@@ -2,8 +2,7 @@
 (* The top-level 'filter' rule: *)
 
 Filter = 
-    Keyword, [ Spaces ],
-    Value, [ Spaces ], { Operator, [ Spaces ],  Value, [ Spaces ] } ;
+    Keyword, Expression;
 
 (* Keywords *)
 
@@ -21,11 +20,21 @@ Spaces = Space, { Space } ;
 
 (* Operator tokens: *)
 
-Operator = '<' | '>' | '=' | AND | OR ;
+Operator = '<' | '>' | '=' ;
 
 AND = "AND" ; (* a hort-hand for: AND = 'A', 'N', 'D' *)
 NOT = "NOT" ;
 OR = "OR" ;
+
+(* Expressions *)
+
+Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
+
+Term = Comparison, [Spaces], [ AND, [Spaces], Term ] ;
+
+Comparison = Value, [Spaces], Operator, [Spaces], Value |
+             NOT, [Spaces], Comparison |
+             '(', [Spaces], Expression, [Spaces], ')' ;
 
 (* Identifier syntax *)
 
