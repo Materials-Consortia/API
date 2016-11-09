@@ -48,7 +48,7 @@ DISTCLEAN_TARGETS += distclean-grammatica
 
 # Local installation of 'grammatiker':
 
-GRAMMATIKER_REV = 121
+GRAMMATIKER_REV = 128
 GRAMMATIKER_URL = svn://saulius-grazulis.lt/grammatiker/trunk
 GRAMMATIKER_LOG = tools/grammatiker-r${GRAMMATIKER_REV}.log
 GRAMMATIKER_DIR = tools/$(notdir $(basename ${GRAMMATIKER_LOG}))
