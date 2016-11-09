@@ -18,11 +18,22 @@
 
 # Include local configuration files from this directory:
 
-MAKECONF_FILES = ${filter-out %~, ${wildcard Makeconf*}}
+MAKECONF_EXAMPLES = ${wildcard Makeconf*.example}
+MAKECONF_FILES = \
+	$(sort \
+		${filter-out %.example,${filter-out %~, ${wildcard Makeconf*}}} \
+		${MAKECONF_EXAMPLES:%.example=%} \
+	)
 
 ifneq ("${MAKECONF_FILES}","")
 include ${MAKECONF_FILES}
 endif
+
+# Make local customisable Makeconfig files:
+
+Makecon%: Makecon%.example
+	test -f $@ || cp -v $< $@
+	test -f $@ && touch $@
 
 #------------------------------------------------------------------------------
 

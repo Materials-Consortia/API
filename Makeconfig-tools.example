@@ -1,0 +1,10 @@
+#---*- Makefile -*-------------------------------------------------------
+
+# Configure which version of 'grammatica' and 'grammatiker' are to be
+# used in this direcotry. A 'Makeconfig-tools' will be generated from
+# the 'Makeconfig-tools.example' file, and you can then change the
+# 'Makeconfig-tools' locally to suite your needs -- the file will not
+# be ovwewritten by version control updates or make builds.
+
+GRAMMATICA_VERSION = 1.6
+GRAMMATIKER_REV = 129
