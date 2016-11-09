@@ -60,8 +60,9 @@ grammatiker: ${GRAMMATIKER_LOG}
 ${GRAMMATIKER_LOG}: ${GRAMMATICA_LOG}
 	svn co -r ${GRAMMATIKER_REV} ${GRAMMATIKER_URL} ${GRAMMATIKER_DIR} \
 	2>&1 | tee $@
+	ln -s ${GRAMMATICA_DIR} ${GRAMMATIKER_DIR}/EBNF/lib
+	ln -s ${GRAMMATICA_DIR} ${GRAMMATIKER_DIR}/BNF/lib
 	test -d ${GRAMMATIKER_DIR} && ${MAKE} -C ${GRAMMATIKER_DIR} \
-		GRAMMATICA_JARS=$$(find ${GRAMMATICA_DIR} -name \*.jar | sort -u | tr "\n" ":") \
 	2>&1 | tee -a $@
 
 distclean-grammatiker:
