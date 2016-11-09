@@ -14,6 +14,10 @@
 #     make tests
 #     make
 
+#     make run
+#     make run TEXT_TO_PARSE=filter.txt
+#     make run TEXT_TO_PARSE=filter.txt GRAMMAR=grammars/filter.ebnf
+
 #------------------------------------------------------------------------------
 
 # Include local configuration files from this directory:
@@ -68,6 +72,25 @@ MAKELOCAL_FILES = ${filter-out %~, ${wildcard Makelocal*}}
 ifneq ("${MAKELOCAL_FILES}","")
 include ${MAKELOCAL_FILES}
 endif
+
+#------------------------------------------------------------------------------
+
+# The 'make run' target for quick testing of grammars:
+
+GEN_DIR = generated
+GRAM_DIR = grammars
+
+GRAMMAR ?= ${GRAM_DIR}/filters.ebnf
+GRAMMAT ?= ${GRAMMAR:${GRAM_DIR}/%.ebnf=${GEN_DIR}/%.g}
+TEXT_TO_PARSE ?= filter.txt
+
+.PHONY: run
+
+run: ${GRAMMAT}
+	./tools/grammatiker/BNF/scripts/grammatica-tree $< ${TEXT_TO_PARSE}
+
+${GEN_DIR}/%.g: $(dir ${GRAMMAR})/%.ebnf
+	./tools/grammatiker/EBNF/scripts/ebnf2grammatica $< > $@
 
 #------------------------------------------------------------------------------
 

@@ -18,9 +18,6 @@ GRAMMATICA_TOP = $(shell cd $(dir ${GRAMMATICA_LOG}); pwd)
 GRAMMATICA_DIR = ${GRAMMATICA_TOP}/grammatica-${GRAMMATICA_VERSION}
 GRAMMATICA_ZIP = ${GRAMMATICA_TOP}/grammatica-${GRAMMATICA_VERSION}.zip
 
-display:
-	echo ${GRAMMATICA_ZIP}
-
 .PHONY: grammatica distclean-grammatica
 
 grammatica: ${GRAMMATICA_LOG}
