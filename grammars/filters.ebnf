@@ -56,13 +56,18 @@ String = '"', { EscapedChar }, '"' ;
 
 EscapedChar = UnescapedChar | '\', '"' | '\', '\' ;
 
-UnescapedChar = Letter | Digit | Space | Punctuator ;
+UnescapedChar = Letter | Digit | Space | Punctuator | UnicodeHighChar ;
 
 Punctuator =
     '!' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | 
     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
     ']' | '^' | '`' | '{' | '|' | '}' | '~'
 ;
+
+(* The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
+   the syntax used is the onw compatible with Grammatica: *)
+
+UnicodeHighChar = ? [^\p{ASCII}] ? ;
 
 (* Number token syntax: *)
 
