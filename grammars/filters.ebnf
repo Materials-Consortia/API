@@ -1,7 +1,7 @@
 
 (* The top-level 'filter' rule: *)
 
-Filter = Value, [ Spaces ], [ Operator, [ Spaces ],  Value ] ;
+Filter = Value, [ Spaces ], { Operator, [ Spaces ],  Value, [ Spaces ] } ;
 
 Value = Identifier | Number ;
 
@@ -13,7 +13,11 @@ Spaces = Space, { Space } ;
 
 (* Operator tokens: *)
 
-Operator = '<' | '>' | '=' ;
+Operator = '<' | '>' | '=' | AND | OR ;
+
+AND = "AND" ; (* a hort-hand for: AND = 'A', 'N', 'D' *)
+NOT = "NOT" ;
+OR = "OR" ;
 
 (* Identifier syntax *)
 
