@@ -1,0 +1,34 @@
+(* The first three rules were added to allow a list of numbers in the input
+stream so that testing with Grammatica is easier: *)
+
+NumberList = [ Spaces ], Number, { Spaces, Number }, [ Spaces ] ;
+
+Space = " " | ? [\t] ? | ? [\n] ? ;
+
+Spaces = Space, [ Space ] ;
+
+(*----------------------------------------------------------------------------*)
+(* Here the productions to define real number syntax start: *)
+
+Number = Integer, [ FloatTail ] | [ Sign ], DotFloat ;
+
+Integer = [ Sign ] , UnsignedInteger ;
+
+UnsignedInteger =  Digit, { Digit } ;
+
+Sign = ('+'|'-') ;
+
+Digit = ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ) ;
+
+Exponent =  ('e' | 'E' ) , Integer ;
+
+(* The 'FloatTail' captures all productoins of 'Float' that start with
+a dot ('.'): *)
+
+FloatTail = '.', [ UnsignedInteger ], [ Exponent ] | Exponent ;
+
+(* The 'DotFloat' rule captures the 'Float' production that starts
+with an optional integer. The integer itself is factored out in the
+'Number' production, to make Grammatica happy: *)
+
+DotFloat = '.', UnsignedInteger, [ Exponent ] ;
