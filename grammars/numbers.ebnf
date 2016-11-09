@@ -1,16 +1,13 @@
-Number = Integer | Float ;
-
-Integer = [ Sign ] , UnsignedInteger ;
+Number = Float ;
 
 UnsignedInteger =  Digit, { Digit } ;
 
-Sign = ('+'|'-') ;
+Sign = ( '+' | '-' ) ;
 
 Digit = ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ) ;
 
-Exponent =  ('e' | 'E' ) , Integer ;
+Exponent =  ( 'e' | 'E' ) , [ Sign ] , UnsignedInteger ;
 
-Float = ( ( Integer, Exponent ) |
-( [Integer] ,  '.' , UnsignedInteger , [Exponent] ) |
-( Integer, '.' , [Exponent] ) |
-( Sign , '.' ,  UnsignedInteger , [Exponent] ) ) ;
+Float = [ Sign ] ,
+        ( UnsignedInteger, [ '.', [ UnsignedInteger ] ] | '.' , UnsignedInteger ),
+        [ Exponent ] ;
