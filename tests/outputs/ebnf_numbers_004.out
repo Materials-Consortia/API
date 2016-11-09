@@ -1,0 +1,37 @@
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 1
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 2
+    Digit(2005)
+      TOKEN_8(1009): "5", line: 1, col: 3
+    Digit(2005)
+      TOKEN_9(1010): "6", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 2
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 3
+    Digit(2005)
+      TOKEN_8(1009): "5", line: 1, col: 4
+    Digit(2005)
+      TOKEN_9(1010): "6", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 2
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 3
+    Digit(2005)
+      TOKEN_8(1009): "5", line: 1, col: 4
+    Digit(2005)
+      TOKEN_9(1010): "6", line: 1, col: 5
