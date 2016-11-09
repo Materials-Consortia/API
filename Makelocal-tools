@@ -51,7 +51,7 @@ DISTCLEAN_TARGETS += distclean-grammatica
 GRAMMATIKER_REV ?= 129
 GRAMMATIKER_URL = svn://saulius-grazulis.lt/grammatiker/trunk
 GRAMMATIKER_LOG = tools/grammatiker-r${GRAMMATIKER_REV}.log
-GRAMMATIKER_DIR = tools/$(notdir $(basename ${GRAMMATIKER_LOG}))
+GRAMMATIKER_DIR = tools/grammatiker
 
 .PHONY: grammatiker distclean-grammatiker
 
