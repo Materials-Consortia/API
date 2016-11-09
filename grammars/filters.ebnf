@@ -18,9 +18,11 @@ Space = ' ' | '\t' ;
 
 Spaces = Space, { Space } ;
 
-(* Operator tokens: *)
+(* OperatorComparison operator tokens: *)
 
-Operator = '<' | '>' | '=' ;
+Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
+
+(* Boolean relations: *)
 
 AND = "AND" ; (* a hort-hand for: AND = 'A', 'N', 'D' *)
 NOT = "NOT" ;
