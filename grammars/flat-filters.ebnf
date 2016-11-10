@@ -30,9 +30,9 @@ Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
 Term = Atom, [Spaces], [ AND, [Spaces], Term ] ;
 
 Atom = [ NOT, [Spaces] ], ( Comparison |
-       '(', [Spaces], Comparison, 
+       '(', [Spaces], [ NOT, [Spaces] ], Comparison, 
             [Spaces], { ( AND | OR ), 
-            [Spaces], Comparison, [Spaces] }, ')' );
+            [Spaces], [ NOT, [Spaces] ], Comparison, [Spaces] }, ')' );
 
 (* Comparison operator tokens: *)
 

@@ -59,10 +59,14 @@ Filter(2001)
           Spaces(2005)
             Space(2004)
               TOKEN_5(1006): " ", line: 1, col: 27
+          NOT(2007)
+            TOKEN_2(1003): "NOT", line: 1, col: 28
 Error: in /dev/fd/62: line 1:
-    unexpected token "NOT", expected one of "A", "B", "C", "D", "E",
+    unexpected token "(", expected one of "A", "B", "C", "D", "E",
     "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
     "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e",
     "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
     "s", "t", "u", "v", "w", "x", "y", "z", "_", "+", "-", "0", "1",
     "2", "3", "4", "5", "6", "7", "8", "9", ".", or """
+Error: in /dev/fd/62: line 1:
+    unexpected token ")", expected <EOF>
