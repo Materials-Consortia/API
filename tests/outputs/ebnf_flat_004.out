@@ -5,27 +5,27 @@ Filter(2001)
   Expression(2009)
     Term(2010)
       Atom(2011)
-        Comparison(2013)
+        Comparison(2014)
           Value(2003)
-            Identifier(2014)
-              Letter(2015)
+            Identifier(2015)
+              Letter(2016)
                 TOKEN_71(1072): "b", line: 1, col: 8
-          Operator(2012)
+          Operator(2013)
             TOKEN_33(1034): "=", line: 1, col: 9
           Value(2003)
-            String(2016)
+            String(2017)
               TOKEN_7(1008): """, line: 1, col: 10
-              EscapedChar(2017)
-                UnescapedChar(2018)
-                  Letter(2015)
+              EscapedChar(2018)
+                UnescapedChar(2019)
+                  Letter(2016)
                     TOKEN_80(1081): "k", line: 1, col: 11
-              EscapedChar(2017)
-                UnescapedChar(2018)
-                  Letter(2015)
+              EscapedChar(2018)
+                UnescapedChar(2019)
+                  Letter(2016)
                     TOKEN_91(1092): "v", line: 1, col: 12
-              EscapedChar(2017)
-                UnescapedChar(2018)
-                  Letter(2015)
+              EscapedChar(2018)
+                UnescapedChar(2019)
+                  Letter(2016)
                     TOKEN_70(1071): "a", line: 1, col: 13
               TOKEN_7(1008): """, line: 1, col: 14
       Spaces(2005)
@@ -39,28 +39,30 @@ Filter(2001)
       Term(2010)
         Atom(2011)
           TOKEN_12(1013): "(", line: 1, col: 20
-          Comparison(2013)
-            Value(2003)
-              Number(2021)
-                Digits(2024)
-                  Digit(2025)
-                    TOKEN_21(1022): "1", line: 1, col: 21
-            Operator(2012)
-              TOKEN_32(1033): "<", line: 1, col: 22
-            Value(2003)
-              Identifier(2014)
-                Letter(2015)
-                  TOKEN_88(1089): "s", line: 1, col: 23
-          Spaces(2005)
-            Space(2004)
-              TOKEN_5(1006): " ", line: 1, col: 24
+          AndComparison(2012)
+            Comparison(2014)
+              Value(2003)
+                Number(2022)
+                  Digits(2025)
+                    Digit(2026)
+                      TOKEN_21(1022): "1", line: 1, col: 21
+              Operator(2013)
+                TOKEN_32(1033): "<", line: 1, col: 22
+              Value(2003)
+                Identifier(2015)
+                  Letter(2016)
+                    TOKEN_88(1089): "s", line: 1, col: 23
+            Spaces(2005)
+              Space(2004)
+                TOKEN_5(1006): " ", line: 1, col: 24
           OR(2008)
             TOKEN_3(1004): "OR", line: 1, col: 25
           Spaces(2005)
             Space(2004)
               TOKEN_5(1006): " ", line: 1, col: 27
-          NOT(2007)
-            TOKEN_2(1003): "NOT", line: 1, col: 28
+          AndComparison(2012)
+            NOT(2007)
+              TOKEN_2(1003): "NOT", line: 1, col: 28
 Error: in /dev/fd/62: line 1:
     unexpected token "(", expected one of "A", "B", "C", "D", "E",
     "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
