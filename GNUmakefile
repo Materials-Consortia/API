@@ -77,6 +77,10 @@ endif
 
 # Automatic dependency generation:
 
+PATH := ${PATH}:tools/mkdepend
+
+export PATH
+
 DEPEND=${SH_FILES:${TEST_DIR}/%.sh=${TEST_DIR}/.%.d}
 
 include ${DEPEND}
