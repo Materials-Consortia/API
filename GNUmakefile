@@ -75,6 +75,19 @@ endif
 
 #------------------------------------------------------------------------------
 
+# Automatic dependency generation:
+
+DEPEND=${SH_FILES:${TEST_DIR}/%.sh=${TEST_DIR}/.%.d}
+
+include ${DEPEND}
+
+${TEST_DIR}/.%.d: ${TEST_DIR}/%.sh
+	mkcomdepend $< \
+	| sed 's,^tests/cases/,tests/outputs/,; s/^\(.*\)\.sh.log:/\1.diff:/' \
+	> $@
+
+#------------------------------------------------------------------------------
+
 # The 'make run' target for quick testing of grammars:
 
 GEN_DIR = generated
