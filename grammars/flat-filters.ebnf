@@ -1,8 +1,7 @@
 
 (* The top-level 'filter' rule: *)
 
-Filter = 
-    Keyword, Expression;
+Filter = Keyword, Expression;
 
 (* Keywords *)
 
@@ -20,7 +19,7 @@ Spaces = Space, { Space } ;
 
 (* Boolean relations: *)
 
-AND = "AND" ; (* a hort-hand for: AND = 'A', 'N', 'D' *)
+AND = "AND" ; (* a short-hand for: AND = 'A', 'N', 'D' *)
 NOT = "NOT" ;
 OR = "OR" ;
 
@@ -35,7 +34,7 @@ Atom = [ NOT, [Spaces] ], ( Comparison |
             [Spaces], { ( AND | OR ), 
             [Spaces], Comparison, [Spaces] }, ')' );
 
-(* OperatorComparison operator tokens: *)
+(* Comparison operator tokens: *)
 
 Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
 
