@@ -87,6 +87,7 @@ TEXT_TO_PARSE ?= filter.txt
 .PHONY: run
 
 run: ${GRAMMAT}
+	awk '{print}' ${TEXT_TO_PARSE}
 	./tools/grammatiker/BNF/scripts/grammatica-tree $< ${TEXT_TO_PARSE}
 
 ${GEN_DIR}/%.g: $(dir ${GRAMMAR})/%.ebnf
