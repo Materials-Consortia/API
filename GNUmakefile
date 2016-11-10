@@ -16,7 +16,7 @@
 
 #     make run
 #     make run TEXT_TO_PARSE=filter.txt
-#     make run TEXT_TO_PARSE=filter.txt GRAMMAR=grammars/filter.ebnf
+#     make run TEXT_TO_PARSE=filter.txt GRAMMAR=grammars/filters.ebnf
 
 #------------------------------------------------------------------------------
 
