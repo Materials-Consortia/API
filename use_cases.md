@@ -4,7 +4,7 @@
 THIS IS NOT ACTUAL SPEC, THIS IS A STRAWMAN.
 THIS SHOULD BE MODIFIED PER FINAL WORKSHOP SPEC.
 
-The goal of this document is to show how totranslate use cases into specific API calls.
+The goal of this document is to show how to translate use cases into specific API calls.
 
 
 ## "Give me all records."
