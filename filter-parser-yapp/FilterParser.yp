@@ -25,10 +25,10 @@ filter: keyword expression
 value: identifier | number | string
     ;
 
-# The white-space:
-
-space: ' ' | '\t'
-    ;
+# The white-space: (handled by the lexer)
+# 
+# space: ' ' | '\t'
+#     ;
 
 # Boolean relations:
 
@@ -167,48 +167,48 @@ letter:
     'w' | 'x' | 'y' | 'z' | '_'
     ;
 
-# Strings:
-
-string: '"' escapedchars '"'
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
-
-escapedchars: escapedchar
-            | escapedchars escapedchar
-                {
-                    return join( '', @_[1..$#_] );
-                }
-    ;
-
-escapedchar: unescapedchar
-           | '\'' '"'
-                {
-                    return join( '', @_[1..$#_] );
-                }
-           | '\'' '\''
-                {
-                    return join( '', @_[1..$#_] );
-                }
-    ;
-
-unescapedchar: letter
-             | digit
-             | space
-             | punctuator
-#            | unicodehighchar
-    ;
-
-punctuator:
-    '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
-    '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
-    ']' | '^' | '`' | '{' | '|' | '}' | '~'
-    ;
-
+# Strings: (handled by the lexer)
+#
+# string: '"' escapedchars '"'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+#
+# escapedchars: escapedchar
+#             | escapedchars escapedchar
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#     ;
+#
+# escapedchar: unescapedchar
+#            | '\'' '"'
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#            | '\'' '\''
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#     ;
+# 
+# unescapedchar: letter
+#              | digit
+#              | space
+#              | punctuator
+#              | unicodehighchar
+#     ;
+#
+# punctuator:
+#     '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
+#     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
+#     ']' | '^' | '`' | '{' | '|' | '}' | '~'
+#     ;
+#
 # The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
 # the syntax used is the onw compatible with Grammatica:
-
+#
 # unicodehighchar = ? [^\p{ASCII}] ? ;
 
 # Number token syntax:
@@ -310,6 +310,46 @@ sub _Lexer
 
     $self->YYData->{INPUT} =~ s/^(\s+)//;
     $self->{USER}{CHARNO} += length( $1 );
+
+    # Escaped double quote or backslash are detected here and returned
+    # as is to the caller in order to be detected as syntax errors.
+    if( $self->YYData->{INPUT} =~ s/^(\\"|\\\\)// ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( $1, $1 );
+    }
+
+    # Handling strings
+    if( $self->YYData->{INPUT} =~ s/^(")// ) {
+        my $string = $1;
+        my $changed = 1;
+        while( $changed ) {
+            $changed = 0;
+            if( $self->YYData->{INPUT} =~
+                    s/^([A-Za-z_0-9 \t!#$%&\'\(\)\*\+,\-\.\/\:;<=>\?@\[\]\^`\{\|\}\~]+)// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(\\\\)// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(\\")// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(")// ) {
+                $string .= $1;
+                last;
+            }
+        }
+        if( $string =~ /"$/ ) {
+            $self->{USER}{CHARNO} += length( $string );
+            return( 'string', $string );
+        } else {
+            return( undef, undef );
+        }
+    }
+
     my $char = substr( $self->YYData->{INPUT}, 0, 1 );
     $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
     $self->{USER}{CHARNO}++;
@@ -321,7 +361,6 @@ sub Run
     my( $self, $filename ) = @_;
     open( $self->{USER}{FILEIN}, $filename );
     return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
-                        # yydebug => 0x1f );
 }
 
 1;
