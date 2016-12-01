@@ -3,10 +3,11 @@
 use strict;
 use warnings;
 use FilterParser;
+use Data::Dumper;
 
 @ARGV = ( '-' ) unless @ARGV;
 
 for (@ARGV) {
     my $parser = new FilterParser;
-    my @value = $parser->Run( $_ );
+    print Dumper( $parser->Run( $_ ) );
 }

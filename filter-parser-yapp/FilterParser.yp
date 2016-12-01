@@ -6,74 +6,158 @@
 
 # The top-level 'filter' rule:
 
-filter: keyword expression ;
+filter: keyword expression
+    {
+        return [ @_[1..$#_] ];
+    }
+    ;
 
 # Keywords
 
-keyword: 'f' 'i' 'l' 't' 'e' 'r' '=' ;
+keyword: 'f' 'i' 'l' 't' 'e' 'r' '='
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
 
 # Values
 
-value: identifier | number | string ;
+value: identifier | number | string
+    ;
 
 # The white-space:
 
-space: ' ' | '\t' ;
+space: ' ' | '\t'
+    ;
 
 # Boolean relations:
 
-AND: 'A' 'N' 'D' ;
-NOT: 'N' 'O' 'T' ;
-OR: 'O' 'R' ;
+AND: 'A' 'N' 'D'
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
+
+NOT: 'N' 'O' 'T'
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
+
+OR: 'O' 'R'
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
 
 # Expressions
 
 expression: term
-          | term OR expression ;
+          | term OR expression
+            {
+                return [ @_[1..$#_] ];
+            }
+    ;
 
 term: atom
-    | atom AND term ;
+    | atom AND term
+        {
+            return [ @_[1..$#_] ];
+        }
+    ;
 
 atom: comparison
     | NOT comparison
+        {
+            return [ @_[1..$#_] ];
+        }
     | '(' andcomparisons ')'
+        {
+            return [ @_[1..$#_] ];
+        }
     | NOT '(' andcomparisons ')'
+        {
+            return [ @_[1..$#_] ];
+        }
     ;
 
 andcomparisons: andcomparison
               | andcomparison OR andcomparisons
-              ;
+                {
+                    return [ @_[1..$#_] ];
+                }
+    ;
 
 andcomparison: comparison
              | NOT comparison
+                {
+                    return [ @_[1..$#_] ];
+                }
              | comparison comparisons
+                {
+                    return [ @_[1..$#_] ];
+                }
              | NOT comparison comparisons
-             ;
+                {
+                    return [ @_[1..$#_] ];
+                }
+    ;
 
 comparisons: AND comparison
+            {
+                return [ @_[1..$#_] ];
+            }
            | AND NOT comparison
+            {
+                return [ @_[1..$#_] ];
+            }
            | AND comparison comparisons
+            {
+                return [ @_[1..$#_] ];
+            }
            | AND NOT comparison comparisons
-           ;
+            {
+                return [ @_[1..$#_] ];
+            }
+    ;
 
 # Comparison operator tokens:
 
 operator: '<'
         | '<' '='
+            {
+                return join( '', @_[1..$#_] );
+            }
         | '>'
         | '>' '='
+            {
+                return join( '', @_[1..$#_] );
+            }
         | '='
         | '!' '='
-        ;
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
 
-comparison: value operator value ;
+comparison: value operator value
+    {
+        return [ @_[1..$#_] ];
+    }
+    ;
 
 # Identifier syntax
 
 identifier: letter
           | identifier letter
+            {
+                return join( '', @_[1..$#_] );
+            }
           | identifier digit
-          ;
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
 
 letter:
     'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' |
@@ -81,33 +165,46 @@ letter:
     'Y' | 'Z' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' |
     'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' |
     'w' | 'x' | 'y' | 'z' | '_'
-;
+    ;
 
 # Strings:
 
-string: '"' escapedchars '"' ;
+string: '"' escapedchars '"'
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
 
 escapedchars: escapedchar
             | escapedchars escapedchar
-            ;
+                {
+                    return join( '', @_[1..$#_] );
+                }
+    ;
 
 escapedchar: unescapedchar
            | '\'' '"'
+                {
+                    return join( '', @_[1..$#_] );
+                }
            | '\'' '\''
-           ;
+                {
+                    return join( '', @_[1..$#_] );
+                }
+    ;
 
 unescapedchar: letter
              | digit
              | space
              | punctuator
 #            | unicodehighchar
-             ;
+    ;
 
 punctuator:
     '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
     ']' | '^' | '`' | '{' | '|' | '}' | '~'
-;
+    ;
 
 # The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
 # the syntax used is the onw compatible with Grammatica:
@@ -118,25 +215,57 @@ punctuator:
 
 number: unsignednumber
       | sign unsignednumber
-      ;
+        {
+            return join( '', @_[1..$#_] );
+        }
+    ;
 
 unsignednumber: digits exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
               | digits '.' exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
               | digits '.' digits exponent
-              | '.' digits exponent;
+                {
+                    return join( '', @_[1..$#_] );
+                }
+              | '.' digits exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
+    ;
 
 exponent: # can be empty
         | 'e' digits
+            {
+                return join( '', @_[1..$#_] );
+            }
         | 'e' sign digits
+            {
+                return join( '', @_[1..$#_] );
+            }
         | 'E' digits
+            {
+                return join( '', @_[1..$#_] );
+            }
         | 'E' sign digits
-        ;
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
 
-sign: '+' | '-' ;
+sign: '+' | '-'
+    ;
 
 digits: digit
       | digits digit
-      ;
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
 
 digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
 
@@ -171,8 +300,8 @@ sub Run
 {
     my( $self, $filename ) = @_;
     open( $self->{USER}{FILEIN}, $filename );
-    $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error,
-                        yydebug => 0x1f );
+    return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+                        # yydebug => 0x1f );
 }
 
 1;
