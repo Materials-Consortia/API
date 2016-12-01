@@ -1,0 +1,16 @@
+./parse: parse error detected at line 0, position 0:
+$VAR1 = [
+          [
+            0,
+            undef
+          ]
+        ];
+$VAR1 = \undef;
+$VAR1 = {
+          'INPUT' => ' filter=key=value
+',
+          'LINENO' => 0,
+          'FILEIN' => \*{'FilterParser::$__ANONIO__'},
+          'CHARNO' => 0
+        };
+$VAR1 = undef;

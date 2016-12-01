@@ -12,13 +12,13 @@ filter: keyword expression
     }
     ;
 
-# Keywords
-
-keyword: 'f' 'i' 'l' 't' 'e' 'r' '='
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
+# Keywords (handled by the lexer)
+#
+# keyword: 'f' 'i' 'l' 't' 'e' 'r' '='
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
 
 # Values
 
@@ -275,7 +275,10 @@ digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
 
 sub _Error
 {
-    print STDERR "$0: parse error detected:\n";
+    my( $self ) = @_;
+    print STDERR "$0: parse error detected at " .
+                 "line $self->{USER}{LINENO}, " .
+                 "position $self->{USER}{CHARNO}:\n";
     use Data::Dumper;
     print Dumper( $_[0]->{STACK} );
     print Dumper( $_[0]->{TOKEN} );
@@ -289,11 +292,27 @@ sub _Lexer
     if( !$self->YYData->{INPUT} ) {
         my $filein = $self->{USER}{FILEIN};
         $self->YYData->{INPUT} = <$filein>;
+        $self->{USER}{LINENO} = -1 unless exists $self->{USER}{LINENO};
+        $self->{USER}{LINENO}++;
+        $self->{USER}{CHARNO} = 0;
     }
 
-    $self->YYData->{INPUT} =~ s/^\s+//;
+    # Keyword must be a first lexem and can not be preceded by space,
+    # thus it is handled exclusively by the lexer.
+    if( $self->{USER}{LINENO} == 0 && $self->{USER}{CHARNO} == 0 ) {
+        if( $self->YYData->{INPUT} =~ s/^(filter=)// ) {
+            $self->{USER}{CHARNO} += length( $1 );
+            return( 'keyword', $1 );
+        } else {
+            return( undef, undef ); # error
+        }
+    }
+
+    $self->YYData->{INPUT} =~ s/^(\s+)//;
+    $self->{USER}{CHARNO} += length( $1 );
     my $char = substr( $self->YYData->{INPUT}, 0, 1 );
     $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
+    $self->{USER}{CHARNO}++;
     return( $char, $char );
 }
 
