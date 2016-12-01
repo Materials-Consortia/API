@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use FilterParser;
+
+@ARGV = ( '-' ) unless @ARGV;
+
+for (@ARGV) {
+    my $parser = new FilterParser;
+    my @value = $parser->Run( $_ );
+}

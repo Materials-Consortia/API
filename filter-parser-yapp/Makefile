@@ -6,4 +6,4 @@ PM_FILE = ${YP_FILE:%.yp=%.pm}
 all: ${PM_FILE}
 
 %.pm: %.yp
-	yapp $<
+	yapp -v $<

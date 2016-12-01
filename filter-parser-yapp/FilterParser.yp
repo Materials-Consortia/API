@@ -1,54 +1,81 @@
+# Header section
 
-(* The top-level 'filter' rule: *)
+%%
 
-Filter = Keyword, Expression;
+# Rules section
 
-(* Keywords *)
+# The top-level 'filter' rule:
 
-Keyword = "filter=" ;
+filter: keyword expression ;
 
-(* Values *)
+# Keywords
 
-Value = Identifier | Number | String ;
+keyword: 'f' 'i' 'l' 't' 'e' 'r' '=' ;
 
-(* The white-space: *)
+# Values
 
-Space = ' ' | '\t' ;
+value: identifier | number | string ;
 
-Spaces = Space, { Space } ;
+# The white-space:
 
-(* Boolean relations: *)
+space: ' ' | '\t' ;
 
-AND = "AND" ; (* a short-hand for: AND = 'A', 'N', 'D' *)
-NOT = "NOT" ;
-OR = "OR" ;
+# Boolean relations:
 
-(* Expressions *)
+AND: 'A' 'N' 'D' ;
+NOT: 'N' 'O' 'T' ;
+OR: 'O' 'R' ;
 
-Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
+# Expressions
 
-Term = Atom, [Spaces], [ AND, [Spaces], Term ] ;
+expression: term
+          | term OR expression ;
 
-Atom = [ NOT, [Spaces] ], ( Comparison |
-       '(', [Spaces], AndComparison,
-            [Spaces], { OR,
-            [Spaces], AndComparison, [Spaces] }, ')' );
+term: atom
+    | atom AND term ;
 
-AndComparison = [ NOT, [Spaces] ], Comparison,
-            [Spaces], { AND,
-            [Spaces], [ NOT, [Spaces] ], Comparison, [Spaces] } ;
+atom: comparison
+    | NOT comparison
+    | '(' andcomparisons ')'
+    | NOT '(' andcomparisons ')'
+    ;
 
-(* Comparison operator tokens: *)
+andcomparisons: andcomparison
+              | andcomparison OR andcomparisons
+              ;
 
-Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
+andcomparison: comparison
+             | NOT comparison
+             | comparison comparisons
+             | NOT comparison comparisons
+             ;
 
-Comparison = Value, [Spaces], Operator, [Spaces], Value ;
+comparisons: AND comparison
+           | AND NOT comparison
+           | AND comparison comparisons
+           | AND NOT comparison comparisons
+           ;
 
-(* Identifier syntax *)
+# Comparison operator tokens:
 
-Identifier = Letter, { Letter | Digit } ;
+operator: '<'
+        | '<' '='
+        | '>'
+        | '>' '='
+        | '='
+        | '!' '='
+        ;
 
-Letter =
+comparison: value operator value ;
+
+# Identifier syntax
+
+identifier: letter
+          | identifier letter
+          | identifier digit
+          ;
+
+letter:
     'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' |
     'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' |
     'Y' | 'Z' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' |
@@ -56,36 +83,96 @@ Letter =
     'w' | 'x' | 'y' | 'z' | '_'
 ;
 
-(* Strings: *)
+# Strings:
 
-String = '"', { EscapedChar }, '"' ;
+string: '"' escapedchars '"' ;
 
-EscapedChar = UnescapedChar | '\', '"' | '\', '\' ;
+escapedchars: escapedchar
+            | escapedchars escapedchar
+            ;
 
-UnescapedChar = Letter | Digit | Space | Punctuator | UnicodeHighChar ;
+escapedchar: unescapedchar
+           | '\'' '"'
+           | '\'' '\''
+           ;
 
-Punctuator =
-    '!' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | 
+unescapedchar: letter
+             | digit
+             | space
+             | punctuator
+#            | unicodehighchar
+             ;
+
+punctuator:
+    '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
     ']' | '^' | '`' | '{' | '|' | '}' | '~'
 ;
 
-(* The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
-   the syntax used is the onw compatible with Grammatica: *)
+# The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
+# the syntax used is the onw compatible with Grammatica:
 
-UnicodeHighChar = ? [^\p{ASCII}] ? ;
+# unicodehighchar = ? [^\p{ASCII}] ? ;
 
-(* Number token syntax: *)
+# Number token syntax:
 
-Number = [ Sign ] ,
-         ( Digits, [ '.', [ Digits ] ] | '.' , Digits ),
-         [ Exponent ] ;
+number: unsignednumber
+      | sign unsignednumber
+      ;
 
-Exponent =  ( 'e' | 'E' ) , [ Sign ] , Digits ;
+unsignednumber: digits exponent
+              | digits '.' exponent
+              | digits '.' digits exponent
+              | '.' digits exponent;
 
-Sign = '+' | '-' ;
+exponent: # can be empty
+        | 'e' digits
+        | 'e' sign digits
+        | 'E' digits
+        | 'E' sign digits
+        ;
 
-Digits =  Digit, { Digit } ;
+sign: '+' | '-' ;
 
-Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+digits: digit
+      | digits digit
+      ;
 
+digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+
+%%
+
+# Footer section
+
+sub _Error
+{
+    use Data::Dumper;
+    print Dumper( $_[0]->{STACK} );
+    print Dumper( $_[0]->{TOKEN} );
+    print Dumper( $_[0]->{USER} );
+}
+
+sub _Lexer
+{
+    my( $self ) = @_;
+
+    if( !$self->YYData->{INPUT} ) {
+        my $filein = $self->{USER}{FILEIN};
+        $self->YYData->{INPUT} = <$filein>;
+    }
+
+    $self->YYData->{INPUT} =~ s/^\s+//;
+    my $char = substr( $self->YYData->{INPUT}, 0, 1 );
+    $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
+    return( $char, $char );
+}
+
+sub Run
+{
+    my( $self, $filename ) = @_;
+    open( $self->{USER}{FILEIN}, $filename );
+    $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error,
+                        yydebug => 0x1f );
+}
+
+1;
