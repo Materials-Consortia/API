@@ -30,25 +30,25 @@ value: identifier | number | string
 # space: ' ' | '\t'
 #     ;
 
-# Boolean relations:
-
-AND: 'A' 'N' 'D'
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
-
-NOT: 'N' 'O' 'T'
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
-
-OR: 'O' 'R'
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
+# Boolean relations: (handled by the lexer)
+# 
+# AND: 'A' 'N' 'D'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+# 
+# NOT: 'N' 'O' 'T'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+# 
+# OR: 'O' 'R'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
 
 # Expressions
 
@@ -348,6 +348,12 @@ sub _Lexer
         } else {
             return( undef, undef );
         }
+    }
+
+    # Handling boolean relations
+    if( $self->YYData->{INPUT} =~ s/^(AND|NOT|OR)// ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( $1, $1 );
     }
 
     my $char = substr( $self->YYData->{INPUT}, 0, 1 );
