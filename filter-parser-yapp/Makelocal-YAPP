@@ -1,9 +1,21 @@
-YP_FILE = FilterParser.yp
-PM_FILE = ${YP_FILE:%.yp=%.pm}
+YP_FILE  = FilterParser.yp
+PM_FILE  = ${YP_FILE:%.yp=%.pm}
+OUT_FILE = ${YP_FILE:%.yp=%.output}
 
-.PHONY: all
+.PHONY: all clean-YAPP distclean-YAPP
 
-all: ${PM_FILE}
+all tests: ${PM_FILE}
 
 %.pm: %.yp
 	yapp -v $<
+
+clean: clean-YAPP
+
+clean-YAPP:
+	rm -f *~
+	rm -f ${OUT_FILE}
+
+cleanAll distclean: distclean-YAPP
+
+distclean-YAPP: clean-YAPP
+	rm -f ${PM_FILE}
