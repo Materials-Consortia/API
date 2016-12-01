@@ -1,0 +1,25 @@
+./parse: parse error detected:
+$VAR1 = [
+          [
+            0,
+            undef
+          ],
+          [
+            2,
+            [
+              'filter=',
+              [
+                'number',
+                '=',
+                '0.0'
+              ]
+            ]
+          ]
+        ];
+$VAR1 = \'.';
+$VAR1 = {
+          'INPUT' => '1
+',
+          'FILEIN' => \*{'FilterParser::$__ANONIO__'}
+        };
+$VAR1 = undef;
