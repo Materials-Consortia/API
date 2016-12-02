@@ -276,13 +276,15 @@ digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
 sub _Error
 {
     my( $self ) = @_;
-    print STDERR "$0: parse error detected at " .
-                 "line $self->{USER}{LINENO}, " .
-                 "position $self->{USER}{CHARNO}:\n";
-    use Data::Dumper;
-    print Dumper( $_[0]->{STACK} );
-    print Dumper( $_[0]->{TOKEN} );
-    print Dumper( $_[0]->{USER} );
+    close $self->{USER}{FILEIN} if $self->{USER}{FILEIN};
+    my $msg = "$0: syntax error at line $self->{USER}{LINENO}, " .
+              "position $self->{USER}{CHARNO}";
+    if( $self->YYData->{INPUT} ) {
+        $self->YYData->{INPUT} =~ s/\n$//;
+        die "$msg: '" . $self->YYData->{INPUT} . "'.\n";
+    } else {
+        die "$msg.\n";
+    }
 }
 
 sub _Lexer
@@ -369,8 +371,10 @@ sub _Lexer
 sub Run
 {
     my( $self, $filename ) = @_;
-    open( $self->{USER}{FILEIN}, $filename );
-    return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+    open $self->{USER}{FILEIN}, $filename;
+    my $result = $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+    close $self->{USER}{FILEIN};
+    return $result;
 }
 
 sub parse_string
