@@ -289,7 +289,9 @@ sub _Lexer
 {
     my( $self ) = @_;
 
-    if( !$self->YYData->{INPUT} ) {
+    # If the line is empty and the input is originating from the file,
+    # another line is read.
+    if( !$self->YYData->{INPUT} && $self->{USER}{FILEIN} ) {
         my $filein = $self->{USER}{FILEIN};
         $self->YYData->{INPUT} = <$filein>;
         $self->{USER}{LINENO} = -1 unless exists $self->{USER}{LINENO};
@@ -309,7 +311,7 @@ sub _Lexer
     }
 
     $self->YYData->{INPUT} =~ s/^(\s+)//;
-    $self->{USER}{CHARNO} += length( $1 );
+    $self->{USER}{CHARNO} += length( $1 ) if defined $1;
 
     # Escaped double quote or backslash are detected here and returned
     # as is to the caller in order to be detected as syntax errors.
@@ -357,7 +359,9 @@ sub _Lexer
     }
 
     my $char = substr( $self->YYData->{INPUT}, 0, 1 );
-    $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
+    if( $char ne '' ) {
+        $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
+    }
     $self->{USER}{CHARNO}++;
     return( $char, $char );
 }
@@ -366,6 +370,15 @@ sub Run
 {
     my( $self, $filename ) = @_;
     open( $self->{USER}{FILEIN}, $filename );
+    return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+}
+
+sub parse_string
+{
+    my( $self, $string ) = @_;
+    $self->YYData->{INPUT} = $string;
+    $self->{USER}{LINENO} = 0;
+    $self->{USER}{CHARNO} = 0;
     return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
 }
 
