@@ -1,0 +1,8 @@
+$VAR1 = [
+          'filter=',
+          [
+            'spacegroup',
+            '=',
+            '"P2"'
+          ]
+        ];

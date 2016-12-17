@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use FilterParser;
+use Data::Dumper;
+
+@ARGV = ( '-' ) unless @ARGV;
+
+for (@ARGV) {
+    my $parser = new FilterParser;
+    print Dumper( $parser->Run( $_ ) );
+}
