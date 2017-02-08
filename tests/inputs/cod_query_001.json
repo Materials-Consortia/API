@@ -1,0 +1,413 @@
+{
+   "resource" : {
+      "base_url" : "testcod/optimade/1.0.0-alpha.1/"
+   },
+   "query" : {
+      "api_version" : "1.0.0-alpha.1",
+      "time_stamp" : "<timestamp>",
+      "data_available" : 39,
+      "representation" : "?filter=_cod_alpha>89AND_cod_alpha<91AND_cod_beta>89AND_cod_beta<91AND_cod_gamma>89AND_cod_gamma<91",
+      "implementation" : {
+         "maintainer" : {
+            "email" : "cod-bugs@ibt.lt"
+         },
+         "version" : "1.0.0-alpha.7",
+         "source_url" : "svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@<revision>",
+         "title" : "Crystallography Open Database"
+      },
+      "data_returned" : 39,
+      "last_id" : "4000095"
+   },
+   "data" : [
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000005.cif@6",
+         "local_id" : "4000005",
+         "url" : "testcod/4000005.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Sn3 Ti2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000008.cif@9",
+         "local_id" : "4000008",
+         "url" : "testcod/4000008.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C2 H10 F Mn N2 O9 V3"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000011.cif@12",
+         "local_id" : "4000011",
+         "url" : "testcod/4000011.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Ce3.67 O3 Se6 Ti2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000012.cif@13",
+         "local_id" : "4000012",
+         "url" : "testcod/4000012.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Nd3.67 O3 Se6 Ti2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000013.cif@14",
+         "local_id" : "4000013",
+         "url" : "testcod/4000013.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "O3 Se6 Sm3.67 Ti2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000014.cif@15",
+         "local_id" : "4000014",
+         "url" : "testcod/4000014.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C24 H16 N4 Rb S12 Se8 Zn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000015.cif@16",
+         "local_id" : "4000015",
+         "url" : "testcod/4000015.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C24 H16 Co Cs N4 S12 Se8"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000016.cif@17",
+         "local_id" : "4000016",
+         "url" : "testcod/4000016.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C24 H16 Cs N4 S12 Se8 Zn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000018.cif@19",
+         "local_id" : "4000018",
+         "url" : "testcod/4000018.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C24 H16 Co N4 Rb S12 Se8"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000019.cif@20",
+         "local_id" : "4000019",
+         "url" : "testcod/4000019.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C6 H6 N2 O2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000020.cif@21",
+         "local_id" : "4000020",
+         "url" : "testcod/4000020.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C40 H43 Cu2 F8 N8 Nb O2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000021.cif@22",
+         "local_id" : "4000021",
+         "url" : "testcod/4000021.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C18 H14 S12"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000022.cif@23",
+         "local_id" : "4000022",
+         "url" : "testcod/4000022.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C20 H18 Cl4 Fe O0.5 S12"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000023.cif@24",
+         "local_id" : "4000023",
+         "url" : "testcod/4000023.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C20 H18 Cl4 Ga O0.5 S12"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000030.cif@31",
+         "local_id" : "4000030",
+         "url" : "testcod/4000030.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C28 H28 I O4 P"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000032.cif@33",
+         "local_id" : "4000032",
+         "url" : "testcod/4000032.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C10 H56 N10 O29 P6 Ti3"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000033.cif@34",
+         "local_id" : "4000033",
+         "url" : "testcod/4000033.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Eu14 Mn P11"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000034.cif@35",
+         "local_id" : "4000034",
+         "url" : "testcod/4000034.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "As11 Eu14 Mn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000038.cif@39",
+         "local_id" : "4000038",
+         "url" : "testcod/4000038.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C18 H13 N3 O4"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000039.cif@40",
+         "local_id" : "4000039",
+         "url" : "testcod/4000039.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C20 H15 N3 O4"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000043.cif@44",
+         "local_id" : "4000043",
+         "url" : "testcod/4000043.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C18 H18 S2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000050.cif@51",
+         "local_id" : "4000050",
+         "url" : "testcod/4000050.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C36 H84 Ga4 O12"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000060.cif@61",
+         "local_id" : "4000060",
+         "url" : "testcod/4000060.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C12 H56 Co2 N12 O32 P8 Zn6"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000061.cif@62",
+         "local_id" : "4000061",
+         "url" : "testcod/4000061.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C12 H8 N2 O4 Zn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000063.cif@64",
+         "local_id" : "4000063",
+         "url" : "testcod/4000063.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C28 H20 Cd N2 O4"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000065.cif@66",
+         "local_id" : "4000065",
+         "url" : "testcod/4000065.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C28 H22 N2 O5 Zn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000066.cif@67",
+         "local_id" : "4000066",
+         "url" : "testcod/4000066.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C24 H16 N2 O4 S2 Zn"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000072.cif@73",
+         "local_id" : "4000072",
+         "url" : "testcod/4000072.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C26 H32 N6 O6 S2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000073.cif@74",
+         "local_id" : "4000073",
+         "url" : "testcod/4000073.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C26 H32 N6 O6 S2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000080.cif@81",
+         "local_id" : "4000080",
+         "url" : "testcod/4000080.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C14 H12 Co N4 O10"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000081.cif@82",
+         "local_id" : "4000081",
+         "url" : "testcod/4000081.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C29 H18 Cl2 Cu N6 O6"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000082.cif@83",
+         "local_id" : "4000082",
+         "url" : "testcod/4000082.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C29 H18 Cl2 Co N6 O6"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000083.cif@84",
+         "local_id" : "4000083",
+         "url" : "testcod/4000083.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C H4 Mn N Se"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000084.cif@85",
+         "local_id" : "4000084",
+         "url" : "testcod/4000084.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "C3 H10 Mn2 N2 Se2"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000091.cif@92",
+         "local_id" : "4000091",
+         "url" : "testcod/4000091.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "As Ti Zr"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000092.cif@93",
+         "local_id" : "4000092",
+         "url" : "testcod/4000092.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "As Ti1.42 Zr0.58"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000093.cif@94",
+         "local_id" : "4000093",
+         "url" : "testcod/4000093.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "H17 Na8 O47.5 Si12 Ti5"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000094.cif@95",
+         "local_id" : "4000094",
+         "url" : "testcod/4000094.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Na0.8 O7.6 Si2.4 Sr0.8 Ti"
+         }
+      },
+      {
+         "entry" : "structure",
+         "immutable_id" : "testcod/4000095.cif@96",
+         "local_id" : "4000095",
+         "url" : "testcod/4000095.cif",
+         "last_modified" : null,
+         "properties" : {
+            "formula" : "Ga K O14 Te6"
+         }
+      }
+   ]
+}
