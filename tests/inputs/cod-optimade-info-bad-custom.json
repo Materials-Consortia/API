@@ -1,0 +1,38 @@
+{
+   "resource" : {
+      "base_url" : "http://www.crystallography.net/cod/optimade/1.0.0-alpha.1/",
+      "cod_revision": 123456
+   },
+   "query" : {
+      "time_stamp" : "2017-02-08T11:16:33Z",
+      "api_version" : "1.0.0-alpha.1",
+      "representation" : "/info?",
+      "implementation" : {
+         "maintainer" : {
+            "email" : "cod-bugs@ibt.lt"
+         },
+         "version" : "1.0.0-alpha.7",
+         "source_url" : "svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@191886",
+         "title" : "Crystallography Open Database"
+      }
+   },
+   "data" : {
+      "api_version" : "1.0.0-alpha.1",
+      "formats" : [
+         "json"
+      ],
+      "available_endpoints" : [
+         "structures",
+         "all",
+         "info"
+      ],
+      "entry_types_by_format" : {
+         "json" : [
+            "structures"
+         ]
+      },
+      "available_api_versions" : {
+         "1.0.0-alpha.1" : "http://www.crystallography.net/cod/optimade/1.0.0-alpha.1/"
+      }
+   }
+}
