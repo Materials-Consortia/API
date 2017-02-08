@@ -3,8 +3,21 @@
     "type": "object",
     "properties": {
         "resource": { "type": "object" },
-        "query": { "type" : "object" },
-        "data": { "type" : "object" }
+        "query": { "type": "object" },
+        "data": {
+            "type": "object",
+            "properties": {
+                "api_version": { "type": "string" },
+                "available_api_versions": { "type": "object" },
+                "formats": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "entry_types_by_format": { "type": "object" }
+            },
+            "required": [ "api_version", "available_api_versions",
+                          "formats", "entry_types_by_format" ]
+        }
     },
     "required": [ "data" ]
 }
