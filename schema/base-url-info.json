@@ -3,7 +3,19 @@
     "type": "object",
     "properties": {
         "resource": { "type": "object" },
-        "query": { "type": "object" },
+        "query": {
+            "type": "object",
+            "properties": {
+                "representation": { "type": "string" },
+                "api_version": { "type": "string" },
+                "time_stamp": { "type": "string" },
+                "data_returned": { "type": "integer" },
+                "data_available": { "type": "integer" },
+                "last_id": { "type": "string" }
+            },
+            "required": [ "representation", "api_version",
+                          "time_stamp" ]
+        },
         "data": {
             "type": "object",
             "properties": {
@@ -17,7 +29,9 @@
             },
             "required": [ "api_version", "available_api_versions",
                           "formats", "entry_types_by_format" ]
-        }
+        },
+        "response_message": { "type": "string" },
+        "meta": { "type": "object" }
     },
-    "required": [ "data" ]
+    "required": [ "query", "resource", "data" ]
 }
