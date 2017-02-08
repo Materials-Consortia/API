@@ -7,6 +7,12 @@
             "properties": {
                 "base_url": { "type": "string" }
             },
+            "patternProperties": {
+                "^_": {
+                    "description": "domain-specific custom information"
+                }
+            },
+            "additionalProperties": false,
             "required": [ "base_url" ]
         },
         "query": {
@@ -29,7 +35,8 @@
                 "available_api_versions": { "type": "object" },
                 "formats": {
                     "type": "array",
-                    "items": { "type": "string" }
+                    "items": { "type": "string" },
+                    "uniqueItems": true
                 },
                 "entry_types_by_format": { "type": "object" }
             },
