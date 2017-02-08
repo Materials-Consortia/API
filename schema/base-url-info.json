@@ -1,0 +1,9 @@
+{
+    "title": "Base URL info",
+    "type": "object",
+    "properties": {
+        "resource": { "type": "object" },
+        "query": { "type" : "object" },
+        "data": { "type" : "object" }
+    }
+}
