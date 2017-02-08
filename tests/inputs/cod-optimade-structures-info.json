@@ -1,0 +1,243 @@
+{
+   "resource" : {
+      "base_url" : "testcod/optimade/1.0.0-alpha.1/"
+   },
+   "query" : {
+      "api_version" : "1.0.0-alpha.1",
+      "time_stamp" : "<timestamp>",
+      "representation" : "/structures/info?",
+      "implementation" : {
+         "maintainer" : {
+            "email" : "cod-bugs@ibt.lt"
+         },
+         "version" : "1.0.0-alpha.7",
+         "source_url" : "svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@<revision>",
+         "title" : "Crystallography Open Database"
+      }
+   },
+   "data" : [
+      {
+         "formats" : [
+            "json"
+         ],
+         "output_fields_by_format" : {
+            "json" : [
+               "formula"
+            ]
+         },
+         "description" : "a structure",
+         "properties" : {
+            "_cod_svnrevision" : {
+               "description" : "The Subversion revision at of the file that was used to produce the SQL table row."
+            },
+            "_cod_siggamma" : {
+               "description" : "The standard deviation of the lattice parameter gamma of the crystal structure."
+            },
+            "_cod_gamma" : {
+               "description" : "The lattice parameter gamma of the crystal structure."
+            },
+            "_cod_chemname" : {
+               "description" : "IUPAC or Chemical Abstracts full name of the compound."
+            },
+            "_cod_RI" : {
+               "description" : "Residual factor R(I) for significantly intense reflections (satisfying _reflns_threshold_expression) and included in the refinement. This is most often calculated in Rietveld refinements against powder data, where it is referred to as R~B~ or R~Bragg~."
+            },
+            "elements" : {
+               "description" : "names of elements found in the structure"
+            },
+            "_cod_sigcellpressure" : {
+               "description" : "The standard deviation of the 'cellpressure' value."
+            },
+            "_cod_time" : {
+               "description" : "The time the current row of the table was inserted to COD database."
+            },
+            "_cod_title" : {
+               "description" : "The title of the scientific paper where the crystal structure was published."
+            },
+            "_cod_gofobs" : {
+               "description" : "The least-squares goodness-of-fit parameter S for significantly intense reflections (see _reflns_threshold_expression) after the final cycle of refinement."
+            },
+            "_cod_text" : {
+               "description" : "A concatenation of all descriptive fields in the table: my $text = join( '\\n', map { Unicode2CIF::cif2unicode($_) } ( $authors, $title, $journal, $volume . ( $issue? ( $volume ? \"($issue)\" : \"(issue $issue)\") : \"\" ), \"(\" . $year . \")\", ( $last_page ? $first_page . \"-\" . $last_page : $first_page )) ); Retained here for compatibility with the first version of the COD."
+            },
+            "_cod_sigbeta" : {
+               "description" : "The standard deviation of the lattice parameter beta of the crystal structure."
+            },
+            "_cod_duplicateof" : {
+               "description" : "Specifies that the COD entry containing this data item is considered to be a duplicate of another entry. The COD number of this other entry, which is considered to be \"primary\" entry for the structure, is specified as a value of this column."
+            },
+            "_cod_sgHall" : {
+               "description" : "Space-group symbol as described by Hall."
+            },
+            "_cod_sigalpha" : {
+               "description" : "The standard deviation of the lattice parameter alpha of the crystal structure."
+            },
+            "_cod_beta" : {
+               "description" : "The lattice parameter beta of the crystal structure."
+            },
+            "_cod_radiation" : {
+               "description" : "The type of radiation that was used to determine the crystal structure."
+            },
+            "_cod_mineral" : {
+               "description" : "Mineral name accepted by the International Mineralogical Association."
+            },
+            "_cod_wRobs" : {
+               "description" : "Weighted residual factors for significantly intense reflections (satisfying _reflns_threshold_expression) included in the refinement."
+            },
+            "_cod_date" : {
+               "description" : "The date the current row of the table was inserted to COD database."
+            },
+            "_cod_wavelength" : {
+               "description" : "The wavelength, in Ångstrøms, that was used to determine the crystal structure."
+            },
+            "_cod_acce_code" : {
+               "description" : "Acta Crystallographica Coeditor Code. Uniquely identifies a publication by IUCr journals and can be used to construct URL of the paper \"landing page\"."
+            },
+            "_cod_b" : {
+               "description" : "The lattice parameter b of the crystal structure."
+            },
+            "_cod_siga" : {
+               "description" : "The standard deviation of the lattice parameter a of the crystal structure."
+            },
+            "_cod_c" : {
+               "description" : "The lattice parameter c of the crystal structure."
+            },
+            "_cod_authors" : {
+               "description" : "The authors that published the paper describing the crystal structure deposited in the COD database, or the authors of the personal communication to COD. NB.: The name syntax uses the BibTeX convention, which is slightly different from the IUCr convention described under the IUCrDescriptionUrl."
+            },
+            "_cod_Rref" : {
+               "description" : "This data value is not described in official IUCr dictinaries, but many CIF files use it. Should be roughly equivalent to Robs."
+            },
+            "_cod_celltemp" : {
+               "description" : "The temperature in Kelvins at which the unit-cell parameters were measured (not the temperature of synthesis)."
+            },
+            "_cod_status" : {
+               "description" : "Describes the severity of errors if such are detected in COD entries. Currently, permitted values are: NULL, 'none', 'warnings', 'errors', 'retracted'."
+            },
+            "_cod_year" : {
+               "description" : "The year of publication of this crystal structure."
+            },
+            "_cod_pressurehist" : {
+               "description" : "The pressure history of the crystal (human-redabale informal description)."
+            },
+            "_cod_diffrtemp" : {
+               "description" : "The mean temperature in Kelvins at which the diffraction intensities were measured."
+            },
+            "_cod_cellpressure" : {
+               "description" : "The pressure in kilopascals at which the unit-cell parameters were measured."
+            },
+            "_cod_volume" : {
+               "description" : "The volume of the journal where the scientific paper decribing the crystal structure was published."
+            },
+            "nelements" : {
+               "description" : "number of elements found in a structure"
+            },
+            "_cod_firstpage" : {
+               "description" : "The first page of the scientific paper where the crystal structure was published."
+            },
+            "_cod_method" : {
+               "description" : "The method that was used to determine the crystal structure."
+            },
+            "_cod_calcformula" : {
+               "description" : "The summary (brutto) formula calculated from the crystal data by the 'cod-tools' package. Ideally, should be the same value as in 'formula'."
+            },
+            "_cod_alpha" : {
+               "description" : "The lattice parameter alpha of the crystal structure."
+            },
+            "_cod_sigdiffrpressure" : {
+               "description" : "The standard deviation of the 'diffrpressure' value"
+            },
+            "_cod_doi" : {
+               "description" : "The DOI that links to the online paper where the crystal was published."
+            },
+            "_cod_vol" : {
+               "description" : "The volume of the crystal structure (calculated by 'cod-tools' from the cell constants)."
+            },
+            "id" : {
+               "description" : "unique ID"
+            },
+            "_cod_commonname" : {
+               "description" : "Trivial name by which the compound in the crystal is commonly known."
+            },
+            "_cod_diffrpressure" : {
+               "description" : "The mean hydrostatic pressure in kilopascals at which the intensities were measured."
+            },
+            "_cod_sigcelltemp" : {
+               "description" : "The standard deviation of the temperature at which the crystal structure was determined."
+            },
+            "_cod_sigc" : {
+               "description" : "The standard deviation of the lattice parameter c of the crystal structure."
+            },
+            "_cod_Robs" : {
+               "description" : "Residual factor for the reflections (with number given by _reflns_number_gt) judged significantly intense (i.e. satisfying the threshold specified by _reflns_threshold_expression) and included in the refinement. The reflections also satisfy the resolution limits established by _refine_ls_d_res_high and _refine_ls_d_res_low. This is the conventional R factor."
+            },
+            "_cod_flags" : {
+               "description" : "A set (as in SQL or Pascal) that describes various conditions of a COD record: \"has coordinates\": the enrty has atomic coordinates specified; \"has disorder\": some atoms were modeled as disorderd in the unit cell of this entry; \"has Fobs\": there is a corresponding X-ray reflection file (Fobs or Iobs data) in the COD for this entry, contaning the original reflection intensities used to determine this structure."
+            },
+            "_cod_optimal" : {
+               "description" : "Contains a COD database code for the COD entry that contains optimally solved structure for the crystall or compound under consideration. This optimal structure should be used for all inferences; the current suboptimal structure is provided for illustration purposes only."
+            },
+            "_cod_onhold" : {
+               "description" : "Specifies the date when the atomic coordinates of the entry, which might be currently on hold (not public), will become available publicly."
+            },
+            "_cod_wRref" : {
+               "description" : "Weighted residual factors for all reflections included in the refinement."
+            },
+            "_cod_wRall" : {
+               "description" : "Weighted residual factors for all reflections."
+            },
+            "_cod_radType" : {
+               "description" : "The type of the radiation used to determine the structure of the crystal. This is used to give a more detailed description than _diffrn_radiation_probe and is typically a description of the X-ray wavelength in Siegbahn notation."
+            },
+            "_cod_gofall" : {
+               "description" : "The least-squares goodness-of-fit parameter S for all reflections after the final cycle of refinement."
+            },
+            "_cod_thermalhist" : {
+               "description" : "The thermal history of the crystal (human-redabale informal description)."
+            },
+            "_cod_a" : {
+               "description" : "The lattice parameter a of the crystal structure."
+            },
+            "_cod_sigvol" : {
+               "description" : "The standard deviation of the volume of the crystal structure."
+            },
+            "modification_date" : {
+               "description" : "date representing when the entry was last modified"
+            },
+            "_cod_sigb" : {
+               "description" : "The standard deviation of the lattice parameter b of the crystal structure."
+            },
+            "_cod_lastpage" : {
+               "description" : "The last page of the scientific paper where the crystal structure was published."
+            },
+            "_cod_radSymbol" : {
+               "description" : "The IUPAC symbol for the X-ray wavelength for the probe radiation."
+            },
+            "_cod_RFsqd" : {
+               "description" : "Residual factor R(Fsqd), calculated on the squared amplitudes of the observed and calculated structure factors, for significantly intense reflections (satisfying _reflns_threshold_expression) and included in the refinement."
+            },
+            "_cod_gofref" : {
+               "description" : "The least-squares goodness-of-fit parameter S for all reflections included in the refinement after the final cycle of refinement."
+            },
+            "chemical_formula" : {
+               "description" : "chemical formula for a structure"
+            },
+            "_cod_Rall" : {
+               "description" : "Residual factor for all reflections satisfying the resolution limits established by _refine_ls_d_res_high and _refine_ls_d_res_low."
+            },
+            "_cod_sigdiffrtemp" : {
+               "description" : "The standard deviation of the 'diffrtemp' value"
+            },
+            "_cod_issue" : {
+               "description" : "The issue of the journal where the scientific paper describing the crystal structure was published."
+            },
+            "_cod_journal" : {
+               "description" : "The name of the journal in which the scientific paper describing the crystal structure was published."
+            },
+            "_cod_sg" : {
+               "description" : "Spacegroup symbol, Hermann-Mauguin or superspacegroup symbol"
+            }
+         }
+      }
+   ]
+}
