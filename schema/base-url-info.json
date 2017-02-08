@@ -2,7 +2,13 @@
     "title": "Base URL info",
     "type": "object",
     "properties": {
-        "resource": { "type": "object" },
+        "resource": {
+            "type": "object",
+            "properties": {
+                "base_url": { "type": "string" }
+            },
+            "required": [ "base_url" ]
+        },
         "query": {
             "type": "object",
             "properties": {
