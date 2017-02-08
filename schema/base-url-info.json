@@ -32,13 +32,30 @@
             "type": "object",
             "properties": {
                 "api_version": { "type": "string" },
-                "available_api_versions": { "type": "object" },
+                "available_api_versions": {
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
                 "formats": {
                     "type": "array",
                     "items": { "type": "string" },
                     "uniqueItems": true
                 },
-                "entry_types_by_format": { "type": "object" }
+                "entry_types_by_format": {
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "uniqueItems": true
+                        }
+                    }
+                }
             },
             "required": [ "api_version", "available_api_versions",
                           "formats", "entry_types_by_format" ]
