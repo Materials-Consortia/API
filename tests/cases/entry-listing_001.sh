@@ -1,3 +1,3 @@
 #! /bin/sh
 
-jsonschema -i tests/inputs/cod_query_001.json schema/entry-listing.json
+jsonschema -i tests/inputs/cod_query_001.json schemata/entry-listing.json

@@ -1,3 +1,3 @@
 #! /bin/sh
 
-jsonschema -i tests/inputs/cod-optimade-structures-info.json schema/entry-info.json
+jsonschema -i tests/inputs/cod-optimade-structures-info.json schemata/entry-info.json
