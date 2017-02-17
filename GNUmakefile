@@ -5,6 +5,42 @@
 #$URL: svn+ssh://saulius-grazulis.lt/home/saulius/svn-repositories/makefiles/Makefile-multiscript-testing $
 #------------------------------------------------------------------------
 
+# Run tests in a test directory (tests/cases by default) and report if
+# all tests pass.
+
+# USAGE:
+#     make clean
+#     make distclean
+#     make tests
+#     make
+
+#     make run
+#     make run TEXT_TO_PARSE=filter.txt
+#     make run TEXT_TO_PARSE=filter.txt GRAMMAR=grammars/filters.ebnf
+
+#------------------------------------------------------------------------------
+
+# Include local configuration files from this directory:
+
+MAKECONF_EXAMPLES = ${wildcard Makeconf*.example}
+MAKECONF_FILES = \
+	$(sort \
+		${filter-out %.example,${filter-out %~, ${wildcard Makeconf*}}} \
+		${MAKECONF_EXAMPLES:%.example=%} \
+	)
+
+ifneq ("${MAKECONF_FILES}","")
+include ${MAKECONF_FILES}
+endif
+
+# Make local customisable Makeconfig files:
+
+Makecon%: Makecon%.example
+	test -f $@ || cp -v $< $@
+	test -f $@ && touch $@
+
+#------------------------------------------------------------------------------
+
 TEST_DIR = tests/cases
 OUTP_DIR = tests/outputs
 
@@ -23,19 +59,72 @@ SH_OUTP_FILES = ${SH_FILES:${TEST_DIR}/%.sh=${OUTP_DIR}/%.out}
 DIFF_FILES = $(sort ${TEST_DIFF_FILES} ${OPT_DIFF_FILES} ${SH_DIFF_FILES})
 OUTP_FILES = $(sort ${TEST_OUTP_FILES} ${OPT_OUTP_FILES} ${SH_OUTP_FILES})
 
-.PHONY: all clean cleanAll distclean check test tests out outputs
+.PHONY: all
 
 all: tests
+
+#------------------------------------------------------------------------------
+
+# Include Makefiles with additional rules for this directory:
+
+MAKELOCAL_FILES = ${filter-out %~, ${wildcard Makelocal*}}
+
+ifneq ("${MAKELOCAL_FILES}","")
+include ${MAKELOCAL_FILES}
+endif
+
+#------------------------------------------------------------------------------
+
+# Automatic dependency generation:
+
+PATH := ${PATH}:tools/mkdepend
+
+export PATH
+
+DEPEND=${SH_FILES:${TEST_DIR}/%.sh=${TEST_DIR}/.%.d}
+
+include ${DEPEND}
+
+${TEST_DIR}/.%.d: ${TEST_DIR}/%.sh
+	mkcomdepend $< \
+	| sed 's,^tests/cases/,tests/outputs/,; s/^\(.*\)\.sh.log:/\1.diff:/' \
+	> $@
+
+#------------------------------------------------------------------------------
+
+# The 'make run' target for quick testing of grammars:
+
+GEN_DIR = generated
+GRAM_DIR = grammars
+
+GRAMMAR ?= ${GRAM_DIR}/flat-filters.ebnf
+GRAMMAT ?= ${GRAMMAR:${GRAM_DIR}/%.ebnf=${GEN_DIR}/%.g}
+TEXT_TO_PARSE ?= filter.txt
+
+.PHONY: run
+
+run: ${GRAMMAT}
+	awk '{print}' ${TEXT_TO_PARSE}
+	./tools/grammatiker/BNF/scripts/grammatica-tree $< ${TEXT_TO_PARSE}
+
+${GEN_DIR}/%.g: $(dir ${GRAMMAR})/%.ebnf
+	./tools/grammatiker/EBNF/scripts/ebnf2grammatica $< > $@
+
+#------------------------------------------------------------------------------
+
+.PHONY: check test tests out outputs
 
 check test tests: ${DIFF_FILES}
 
 out outputs: ${OUTP_FILES}
 
+EXTRA_TEST_DEPS = ${GRAMMATIKER_LOG}
+
 #------------------------------------------------------------------------------
 
 # Rules to run script-specific tests:
 
-${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt
+${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt ${EXTRA_TEST_DEPS}
 	-@printf "%-30s " "$<:" ; \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
 	    $(shell grep -v '^#' ${word 2, $^}) \
@@ -44,7 +133,7 @@ ${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt
 	| diff ${OUTP_DIR}/$*.out - > $@ ; \
 	if [ $$? = 0 ]; then echo "OK"; else echo "FAILED:"; cat $@; fi
 
-${OUTP_DIR}/%.diff: ${TEST_DIR}/%.opt
+${OUTP_DIR}/%.diff: ${TEST_DIR}/%.opt ${EXTRA_TEST_DEPS}
 	-@printf "%-30s " "$<:" ; \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
 	    $(shell grep -v '^#' ${word 1, $^}) \
@@ -52,7 +141,7 @@ ${OUTP_DIR}/%.diff: ${TEST_DIR}/%.opt
 	| diff ${OUTP_DIR}/$*.out - > $@ ; \
 	if [ $$? = 0 ]; then echo "OK"; else echo "FAILED:"; cat $@; fi
 
-${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp
+${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp ${EXTRA_TEST_DEPS}
 	-@printf "%-30s " "$<:" ; \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
 	    $< \
@@ -62,7 +151,7 @@ ${OUTP_DIR}/%.diff: ${TEST_DIR}/%.inp
 
 # Shell-script based tests:
 
-${OUTP_DIR}/%.diff: ${TEST_DIR}/%.sh
+${OUTP_DIR}/%.diff: ${TEST_DIR}/%.sh ${EXTRA_TEST_DEPS}
 	-@printf "%-30s " "$<:" ; \
 	$< 2>&1 \
 	| diff ${OUTP_DIR}/$*.out - > $@ ; \
@@ -70,7 +159,7 @@ ${OUTP_DIR}/%.diff: ${TEST_DIR}/%.sh
 
 # Rules to generate sample test outputs:
 
-${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt
+${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt ${EXTRA_TEST_DEPS}
 	-@test -f $@ || echo "$@:"
 	-@test -f $@ || \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
@@ -80,7 +169,7 @@ ${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp ${TEST_DIR}/%.opt
 	| tee $@
 	-@touch $@
 
-${OUTP_DIR}/%.out: ${TEST_DIR}/%.opt
+${OUTP_DIR}/%.out: ${TEST_DIR}/%.opt ${EXTRA_TEST_DEPS}
 	-@test -f $@ || echo "$@:"
 	-@test -f $@ || \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
@@ -89,7 +178,7 @@ ${OUTP_DIR}/%.out: ${TEST_DIR}/%.opt
 	| tee $@
 	-@touch $@
 
-${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp
+${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp ${EXTRA_TEST_DEPS}
 	-@test -f $@ || echo "$@:"
 	-@test -f $@ || \
 	./$(shell echo $* | sed -e 's/_[0-9]*$$//') \
@@ -98,7 +187,7 @@ ${OUTP_DIR}/%.out: ${TEST_DIR}/%.inp
 	| tee $@
 	-@touch $@
 
-${OUTP_DIR}/%.out: ${TEST_DIR}/%.sh
+${OUTP_DIR}/%.out: ${TEST_DIR}/%.sh ${EXTRA_TEST_DEPS}
 	-@test -f $@ || echo "$@:"
 	-@test -f $@ || \
 	$< 2>&1 \
@@ -116,7 +205,9 @@ listdiff: ## test
 
 #------------------------------------------------------------------------------
 
+.PHONY: clean distclean cleanAll
+
 clean:
 	rm -f ${DIFF_FILES}
 
-distclean cleanAll: clean
+distclean cleanAll: clean ${DISTCLEAN_TARGETS}

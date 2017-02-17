@@ -1,0 +1,24 @@
+$VAR1 = [
+          'filter=',
+          [
+            [
+              '_cod_melting_point',
+              '<',
+              '300'
+            ],
+            'AND',
+            [
+              [
+                'nelements',
+                '=',
+                '4'
+              ],
+              'AND',
+              [
+                'elements',
+                '=',
+                '"Si,O2"'
+              ]
+            ]
+          ]
+        ];
