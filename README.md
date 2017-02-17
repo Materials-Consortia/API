@@ -17,7 +17,7 @@ Tasks to be completed
 These modules should be designed to be included into a Python script belonging to the databases or decentralized authority. It is the responsibility for each entity to match the given variables with their database.
 
 **S.G. 2016-11-01:**
-As I started to describe the token syntax for the filter language in the documents quoted above, I realised that a formal platform-independent definition would be handy. I have thus described a suggested real number syntax as Extended and Perl-Compatible regular expressions, and added several tests to make sure that these expressions perform as expected. The tests/inputs/*.lst files contain a list of real numbers, with some marginal cases, against which each independent implementation and teh defining regular expressions can be tested.
+As I started to describe the token syntax for the filter language in the documents quoted above, I realised that a formal platform-independent definition would be handy. I have thus described a suggested real number syntax as Extended and Perl-Compatible regular expressions, and added several tests to make sure that these expressions perform as expected. The tests/inputs/*.lst files contain a list of real numbers, with some marginal cases, against which each independent implementation and the defining regular expressions can be tested.
 
 Tests
 =====

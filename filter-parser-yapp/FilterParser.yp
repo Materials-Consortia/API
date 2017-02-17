@@ -1,0 +1,389 @@
+# Header section
+
+%%
+
+# Rules section
+
+# The top-level 'filter' rule:
+
+filter: keyword expression
+    {
+        return [ @_[1..$#_] ];
+    }
+    ;
+
+# Keywords (handled by the lexer)
+#
+# keyword: 'f' 'i' 'l' 't' 'e' 'r' '='
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+
+# Values
+
+value: identifier | number | string
+    ;
+
+# The white-space: (handled by the lexer)
+# 
+# space: ' ' | '\t'
+#     ;
+
+# Boolean relations: (handled by the lexer)
+# 
+# AND: 'A' 'N' 'D'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+# 
+# NOT: 'N' 'O' 'T'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+# 
+# OR: 'O' 'R'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+
+# Expressions
+
+expression: term
+          | term OR expression
+            {
+                return [ @_[1..$#_] ];
+            }
+    ;
+
+term: atom
+    | atom AND term
+        {
+            return [ @_[1..$#_] ];
+        }
+    ;
+
+atom: comparison
+    | NOT comparison
+        {
+            return [ @_[1..$#_] ];
+        }
+    | '(' andcomparisons ')'
+        {
+            return [ @_[1..$#_] ];
+        }
+    | NOT '(' andcomparisons ')'
+        {
+            return [ @_[1..$#_] ];
+        }
+    ;
+
+andcomparisons: andcomparison
+              | andcomparison OR andcomparisons
+                {
+                    return [ @_[1..$#_] ];
+                }
+    ;
+
+andcomparison: comparison
+             | NOT comparison
+                {
+                    return [ @_[1..$#_] ];
+                }
+             | comparison comparisons
+                {
+                    return [ @_[1..$#_] ];
+                }
+             | NOT comparison comparisons
+                {
+                    return [ @_[1..$#_] ];
+                }
+    ;
+
+comparisons: AND comparison
+            {
+                return [ @_[1..$#_] ];
+            }
+           | AND NOT comparison
+            {
+                return [ @_[1..$#_] ];
+            }
+           | AND comparison comparisons
+            {
+                return [ @_[1..$#_] ];
+            }
+           | AND NOT comparison comparisons
+            {
+                return [ @_[1..$#_] ];
+            }
+    ;
+
+# Comparison operator tokens:
+
+operator: '<'
+        | '<' '='
+            {
+                return join( '', @_[1..$#_] );
+            }
+        | '>'
+        | '>' '='
+            {
+                return join( '', @_[1..$#_] );
+            }
+        | '='
+        | '!' '='
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
+
+comparison: value operator value
+    {
+        return [ @_[1..$#_] ];
+    }
+    ;
+
+# Identifier syntax
+
+identifier: letter
+          | identifier letter
+            {
+                return join( '', @_[1..$#_] );
+            }
+          | identifier digit
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
+
+letter:
+    'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' |
+    'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' |
+    'Y' | 'Z' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' |
+    'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' |
+    'w' | 'x' | 'y' | 'z' | '_'
+    ;
+
+# Strings: (handled by the lexer)
+#
+# string: '"' escapedchars '"'
+#     {
+#         return join( '', @_[1..$#_] );
+#     }
+#     ;
+#
+# escapedchars: escapedchar
+#             | escapedchars escapedchar
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#     ;
+#
+# escapedchar: unescapedchar
+#            | '\'' '"'
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#            | '\'' '\''
+#                 {
+#                     return join( '', @_[1..$#_] );
+#                 }
+#     ;
+# 
+# unescapedchar: letter
+#              | digit
+#              | space
+#              | punctuator
+#              | unicodehighchar
+#     ;
+#
+# punctuator:
+#     '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
+#     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
+#     ']' | '^' | '`' | '{' | '|' | '}' | '~'
+#     ;
+#
+# The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
+# the syntax used is the onw compatible with Grammatica:
+#
+# unicodehighchar = ? [^\p{ASCII}] ? ;
+
+# Number token syntax:
+
+number: unsignednumber
+      | sign unsignednumber
+        {
+            return join( '', @_[1..$#_] );
+        }
+    ;
+
+unsignednumber: digits exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
+              | digits '.' exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
+              | digits '.' digits exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
+              | '.' digits exponent
+                {
+                    return join( '', @_[1..$#_] );
+                }
+    ;
+
+exponent: # can be empty
+        | 'e' digits
+            {
+                return join( '', @_[1..$#_] );
+            }
+        | 'e' sign digits
+            {
+                return join( '', @_[1..$#_] );
+            }
+        | 'E' digits
+            {
+                return join( '', @_[1..$#_] );
+            }
+        | 'E' sign digits
+            {
+                return join( '', @_[1..$#_] );
+            }
+    ;
+
+sign: '+' | '-'
+    ;
+
+digits: digit
+      | digits digit
+    {
+        return join( '', @_[1..$#_] );
+    }
+    ;
+
+digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+
+%%
+
+# Footer section
+
+sub _Error
+{
+    my( $self ) = @_;
+    close $self->{USER}{FILEIN} if $self->{USER}{FILEIN};
+    my $msg = "$0: syntax error at line $self->{USER}{LINENO}, " .
+              "position $self->{USER}{CHARNO}";
+    if( $self->YYData->{INPUT} ) {
+        $self->YYData->{INPUT} =~ s/\n$//;
+        die "$msg: '" . $self->YYData->{INPUT} . "'.\n";
+    } else {
+        die "$msg.\n";
+    }
+}
+
+sub _Lexer
+{
+    my( $self ) = @_;
+
+    # If the line is empty and the input is originating from the file,
+    # another line is read.
+    if( !$self->YYData->{INPUT} && $self->{USER}{FILEIN} ) {
+        my $filein = $self->{USER}{FILEIN};
+        $self->YYData->{INPUT} = <$filein>;
+        $self->{USER}{LINENO} = -1 unless exists $self->{USER}{LINENO};
+        $self->{USER}{LINENO}++;
+        $self->{USER}{CHARNO} = 0;
+    }
+
+    # Keyword must be a first lexem and can not be preceded by space,
+    # thus it is handled exclusively by the lexer.
+    if( $self->{USER}{LINENO} == 0 && $self->{USER}{CHARNO} == 0 ) {
+        if( $self->YYData->{INPUT} =~ s/^(filter=)// ) {
+            $self->{USER}{CHARNO} += length( $1 );
+            return( 'keyword', $1 );
+        } else {
+            return( undef, undef ); # error
+        }
+    }
+
+    $self->YYData->{INPUT} =~ s/^(\s+)//;
+    $self->{USER}{CHARNO} += length( $1 ) if defined $1;
+
+    # Escaped double quote or backslash are detected here and returned
+    # as is to the caller in order to be detected as syntax errors.
+    if( $self->YYData->{INPUT} =~ s/^(\\"|\\\\)// ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( $1, $1 );
+    }
+
+    # Handling strings
+    if( $self->YYData->{INPUT} =~ s/^(")// ) {
+        my $string = $1;
+        my $changed = 1;
+        while( $changed ) {
+            $changed = 0;
+            if( $self->YYData->{INPUT} =~
+                    s/^([A-Za-z_0-9 \t!#$%&\'\(\)\*\+,\-\.\/\:;<=>\?@\[\]\^`\{\|\}\~\P{ASCII}]+)// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(\\\\)// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(\\")// ) {
+                $string .= $1;
+                $changed = 1;
+            }
+            if( $self->YYData->{INPUT} =~ s/^(")// ) {
+                $string .= $1;
+                last;
+            }
+        }
+        if( $string =~ /"$/ ) {
+            $self->{USER}{CHARNO} += length( $string );
+            return( 'string', $string );
+        } else {
+            return( undef, undef );
+        }
+    }
+
+    # Handling boolean relations
+    if( $self->YYData->{INPUT} =~ s/^(AND|NOT|OR)// ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( $1, $1 );
+    }
+
+    my $char = substr( $self->YYData->{INPUT}, 0, 1 );
+    if( $char ne '' ) {
+        $self->YYData->{INPUT} = substr( $self->YYData->{INPUT}, 1 );
+    }
+    $self->{USER}{CHARNO}++;
+    return( $char, $char );
+}
+
+sub Run
+{
+    my( $self, $filename ) = @_;
+    open $self->{USER}{FILEIN}, $filename;
+    my $result = $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+    close $self->{USER}{FILEIN};
+    return $result;
+}
+
+sub parse_string
+{
+    my( $self, $string ) = @_;
+    $self->YYData->{INPUT} = $string;
+    $self->{USER}{LINENO} = 0;
+    $self->{USER}{CHARNO} = 0;
+    return $self->YYParse( yylex => \&_Lexer, yyerror => \&_Error );
+}
+
+1;

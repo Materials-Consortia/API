@@ -1,0 +1,91 @@
+
+(* The top-level 'filter' rule: *)
+
+Filter = Keyword, Expression;
+
+(* Keywords *)
+
+Keyword = "filter=" ;
+
+(* Values *)
+
+Value = Identifier | Number | String ;
+
+(* The white-space: *)
+
+Space = ' ' | '\t' ;
+
+Spaces = Space, { Space } ;
+
+(* Boolean relations: *)
+
+AND = "AND" ; (* a short-hand for: AND = 'A', 'N', 'D' *)
+NOT = "NOT" ;
+OR = "OR" ;
+
+(* Expressions *)
+
+Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
+
+Term = Atom, [Spaces], [ AND, [Spaces], Term ] ;
+
+Atom = [ NOT, [Spaces] ], ( Comparison |
+       '(', [Spaces], AndComparison,
+            [Spaces], { OR,
+            [Spaces], AndComparison, [Spaces] }, ')' );
+
+AndComparison = [ NOT, [Spaces] ], Comparison,
+            [Spaces], { AND,
+            [Spaces], [ NOT, [Spaces] ], Comparison, [Spaces] } ;
+
+(* Comparison operator tokens: *)
+
+Operator = '<', [ '=' ] | '>', [ '=' ] | '=' | '!', '=' ;
+
+Comparison = Value, [Spaces], Operator, [Spaces], Value ;
+
+(* Identifier syntax *)
+
+Identifier = Letter, { Letter | Digit } ;
+
+Letter =
+    'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' |
+    'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' |
+    'Y' | 'Z' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' |
+    'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' |
+    'w' | 'x' | 'y' | 'z' | '_'
+;
+
+(* Strings: *)
+
+String = '"', { EscapedChar }, '"' ;
+
+EscapedChar = UnescapedChar | '\', '"' | '\', '\' ;
+
+UnescapedChar = Letter | Digit | Space | Punctuator | UnicodeHighChar ;
+
+Punctuator =
+    '!' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | 
+    '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
+    ']' | '^' | '`' | '{' | '|' | '}' | '~'
+;
+
+(* The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
+   the syntax used is the onw compatible with Grammatica: *)
+
+UnicodeHighChar = ? [^\p{ASCII}] ? ;
+
+(* Number token syntax: *)
+
+Number = [ Sign ] ,
+         ( Digits, [ '.', [ Digits ] ] | '.' , Digits ),
+         [ Exponent ] ;
+
+Exponent =  ( 'e' | 'E' ) , [ Sign ] , Digits ;
+
+Sign = '+' | '-' ;
+
+Digits =  Digit, { Digit } ;
+
+Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+

@@ -1,0 +1,1211 @@
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+  TOKEN_2(1003): ".", line: 1, col: 4
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 6
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 7
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 8
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 9
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 6
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 7
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 8
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 9
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_1(1002): "-", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 4
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 4
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 3
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 3
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 6
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 7
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 8
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 9
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 6
+    Sign(2003)
+      TOKEN_1(1002): "-", line: 1, col: 7
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 8
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 9
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_8(1009): "5", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_9(1010): "6", line: 1, col: 1
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 2
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 2
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 1
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 1
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 1
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 2
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 4
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_7(1008): "4", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_7(1008): "4", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 4
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 5
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 6
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 7
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 8
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 9
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 4
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 5
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 6
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 7
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 8
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 9
+  TOKEN_2(1003): ".", line: 1, col: 10
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 5
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 6
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 7
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  TOKEN_2(1003): ".", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 2
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 3
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 4
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 5
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 3
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 4
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 5
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 6
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Sign(2003)
+    TOKEN_0(1001): "+", line: 1, col: 1
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 2
+  TOKEN_2(1003): ".", line: 1, col: 3
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 4
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+  TOKEN_2(1003): ".", line: 1, col: 2
+  Digits(2004)
+    Digit(2005)
+      TOKEN_5(1006): "2", line: 1, col: 3
+    Digit(2005)
+      TOKEN_6(1007): "3", line: 1, col: 4
+    Digit(2005)
+      TOKEN_7(1008): "4", line: 1, col: 5
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 6
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 7
+      Digit(2005)
+        TOKEN_5(1006): "2", line: 1, col: 8
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 2
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 4
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 5
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 6
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 7
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 8
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 9
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 10
+  TOKEN_2(1003): ".", line: 1, col: 11
+  Exponent(2002)
+    TOKEN_14(1015): "e", line: 1, col: 12
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 13
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 14
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 15
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 16
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 17
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 18
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 19
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 20
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 21
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 22
+Parse tree from /dev/fd/63:
+Number(2001)
+  Digits(2004)
+    Digit(2005)
+      TOKEN_4(1005): "1", line: 1, col: 1
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 2
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 3
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 4
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 5
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 6
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 7
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 8
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 9
+    Digit(2005)
+      TOKEN_3(1004): "0", line: 1, col: 10
+  TOKEN_2(1003): ".", line: 1, col: 11
+  Exponent(2002)
+    TOKEN_13(1014): "E", line: 1, col: 12
+    Digits(2004)
+      Digit(2005)
+        TOKEN_4(1005): "1", line: 1, col: 13
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 14
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 15
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 16
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 17
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 18
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 19
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 20
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 21
+      Digit(2005)
+        TOKEN_3(1004): "0", line: 1, col: 22
