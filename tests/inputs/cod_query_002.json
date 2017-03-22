@@ -1,0 +1,33 @@
+{
+   "resource" : {
+      "base_url" : "http://www.crystallography.net/cod/optimade/1.0.0-alpha.1/"
+   },
+   "query" : {
+      "api_version" : "1.0.0-alpha.1",
+      "data_available" : 1,
+      "time_stamp" : "2017-03-22T11:27:41Z",
+      "representation" : "/structures?fields=id,url&filter=id=1000000",
+      "implementation" : {
+         "maintainer" : {
+            "email" : "cod-bugs@ibt.lt"
+         },
+         "version" : "1.0.0-alpha.7",
+         "source_url" : "svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@191886",
+         "title" : "Crystallography Open Database"
+      },
+      "last_id" : "1000000",
+      "data_returned" : 1
+   },
+   "data" : [
+      {
+         "entry" : "structure",
+         "immutable_id" : "http://www.crystallography.net/cod/1000000.cif@176729",
+         "local_id" : "1000000",
+         "url" : "http://www.crystallography.net/cod/1000000.cif",
+         "last_modified" : "2017-02-28T16:35:05Z",
+         "properties" : {
+            "formula" : "C5 H17 Al N2 O8 P2"
+         }
+      }
+   ]
+}
