@@ -26,9 +26,11 @@ OR = "OR" ;
 
 (* Expressions *)
 
-Expression = Term, [Spaces], [ OR, [Spaces], Expression ] ;
+Expression = AndExpression, [Spaces], [ OR, [Spaces], Expression ] ;
 
-Term = Comparison, [Spaces], [ AND, [Spaces], Term ] |
+AndExpression = Term, [Spaces], [ AND, [Spaces], AndExpression ];
+
+Term = Comparison |
        '(', [Spaces], Expression, [Spaces], ')'  |
        NOT, [Spaces], Term
        ;
