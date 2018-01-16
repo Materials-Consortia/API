@@ -1,0 +1,2 @@
+tests/cases/ebnf_filters_502.sh: line 8: unexpected EOF while looking for matching `''
+tests/cases/ebnf_filters_502.sh: line 9: syntax error: unexpected end of file
