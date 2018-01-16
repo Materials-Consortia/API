@@ -60,7 +60,7 @@ expression: andexpression
     ;
 
 andexpression: term
-    | andexpression AND term
+    | term AND andexpression
         {
             return [ @_[1..$#_] ];
         }
