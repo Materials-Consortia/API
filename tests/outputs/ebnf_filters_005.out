@@ -3,19 +3,20 @@ Filter(2001)
   Keyword(2002)
     TOKEN_4(1005): "filter=", line: 1, col: 1
   Expression(2009)
-    Term(2010)
-      Comparison(2012)
-        Value(2003)
-          Identifier(2013)
-            Letter(2014)
-              TOKEN_70(1071): "a", line: 1, col: 8
-        Operator(2011)
-          TOKEN_34(1035): ">", line: 1, col: 9
-        Value(2003)
-          Number(2020)
-            Digits(2023)
-              Digit(2024)
-                TOKEN_21(1022): "1", line: 1, col: 10
+    AndExpression(2010)
+      Term(2011)
+        Comparison(2013)
+          Value(2003)
+            Identifier(2014)
+              Letter(2015)
+                TOKEN_70(1071): "a", line: 1, col: 8
+          Operator(2012)
+            TOKEN_34(1035): ">", line: 1, col: 9
+          Value(2003)
+            Number(2021)
+              Digits(2024)
+                Digit(2025)
+                  TOKEN_21(1022): "1", line: 1, col: 10
       Spaces(2005)
         Space(2004)
           TOKEN_5(1006): " ", line: 1, col: 11
@@ -24,25 +25,26 @@ Filter(2001)
       Spaces(2005)
         Space(2004)
           TOKEN_5(1006): " ", line: 1, col: 15
-      Term(2010)
-        Comparison(2012)
+      AndExpression(2010)
+        Term(2011)
           TOKEN_12(1013): "(", line: 1, col: 16
           Expression(2009)
-            Term(2010)
-              Comparison(2012)
-                Value(2003)
-                  Identifier(2013)
-                    Letter(2014)
-                      TOKEN_71(1072): "b", line: 1, col: 17
-                Operator(2011)
-                  TOKEN_32(1033): "<", line: 1, col: 18
-                Value(2003)
-                  Number(2020)
-                    Digits(2023)
-                      Digit(2024)
-                        TOKEN_21(1022): "1", line: 1, col: 19
-                      Digit(2024)
-                        TOKEN_20(1021): "0", line: 1, col: 20
+            AndExpression(2010)
+              Term(2011)
+                Comparison(2013)
+                  Value(2003)
+                    Identifier(2014)
+                      Letter(2015)
+                        TOKEN_71(1072): "b", line: 1, col: 17
+                  Operator(2012)
+                    TOKEN_32(1033): "<", line: 1, col: 18
+                  Value(2003)
+                    Number(2021)
+                      Digits(2024)
+                        Digit(2025)
+                          TOKEN_21(1022): "1", line: 1, col: 19
+                        Digit(2025)
+                          TOKEN_20(1021): "0", line: 1, col: 20
               Spaces(2005)
                 Space(2004)
                   TOKEN_5(1006): " ", line: 1, col: 21
@@ -52,19 +54,20 @@ Filter(2001)
               Space(2004)
                 TOKEN_5(1006): " ", line: 1, col: 24
             Expression(2009)
-              Term(2010)
-                Comparison(2012)
-                  Value(2003)
-                    Identifier(2013)
-                      Letter(2014)
-                        TOKEN_72(1073): "c", line: 1, col: 25
-                  Operator(2011)
-                    TOKEN_6(1007): "!", line: 1, col: 26
-                    TOKEN_33(1034): "=", line: 1, col: 27
-                  Value(2003)
-                    Identifier(2013)
-                      Letter(2014)
-                        TOKEN_71(1072): "b", line: 1, col: 28
+              AndExpression(2010)
+                Term(2011)
+                  Comparison(2013)
+                    Value(2003)
+                      Identifier(2014)
+                        Letter(2015)
+                          TOKEN_72(1073): "c", line: 1, col: 25
+                    Operator(2012)
+                      TOKEN_6(1007): "!", line: 1, col: 26
+                      TOKEN_33(1034): "=", line: 1, col: 27
+                    Value(2003)
+                      Identifier(2014)
+                        Letter(2015)
+                          TOKEN_71(1072): "b", line: 1, col: 28
                 Spaces(2005)
                   Space(2004)
                     TOKEN_5(1006): " ", line: 1, col: 29
@@ -74,21 +77,22 @@ Filter(2001)
                 Space(2004)
                   TOKEN_5(1006): " ", line: 1, col: 32
               Expression(2009)
-                Term(2010)
-                  Comparison(2012)
-                    Value(2003)
-                      Identifier(2013)
-                        Letter(2014)
-                          TOKEN_93(1094): "x", line: 1, col: 33
-                    Operator(2011)
-                      TOKEN_34(1035): ">", line: 1, col: 34
-                    Value(2003)
-                      Number(2020)
-                        Digits(2023)
-                          Digit(2024)
-                            TOKEN_21(1022): "1", line: 1, col: 35
-                          Digit(2024)
-                            TOKEN_20(1021): "0", line: 1, col: 36
-                          Digit(2024)
-                            TOKEN_20(1021): "0", line: 1, col: 37
+                AndExpression(2010)
+                  Term(2011)
+                    Comparison(2013)
+                      Value(2003)
+                        Identifier(2014)
+                          Letter(2015)
+                            TOKEN_93(1094): "x", line: 1, col: 33
+                      Operator(2012)
+                        TOKEN_34(1035): ">", line: 1, col: 34
+                      Value(2003)
+                        Number(2021)
+                          Digits(2024)
+                            Digit(2025)
+                              TOKEN_21(1022): "1", line: 1, col: 35
+                            Digit(2025)
+                              TOKEN_20(1021): "0", line: 1, col: 36
+                            Digit(2025)
+                              TOKEN_20(1021): "0", line: 1, col: 37
           TOKEN_13(1014): ")", line: 1, col: 38
