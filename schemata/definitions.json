@@ -71,6 +71,7 @@
                "type":"string"
             },
             "time_stamp":{
+               "format":"date-time",
                "type":"string"
             }
          },
