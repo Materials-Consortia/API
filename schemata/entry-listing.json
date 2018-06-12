@@ -23,7 +23,6 @@
                   },
                   "required":[
                      "local_id",
-                     "immutable_id",
                      "last_modified"
                   ],
                   "type":"object"
