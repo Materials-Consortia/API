@@ -48,6 +48,7 @@
          "$ref":"http://jsonapi.org/schema#/definitions/links"
       },
       "meta":{
+         "definition":"meta object that contains non-standard meta-information about the object",
          "type":"object"
       },
       "query":{
@@ -77,6 +78,9 @@
             "time_stamp"
          ],
          "type":"object"
+      },
+      "relationships":{
+         "$ref":"http://jsonapi.org/schema#/definitions/relationships"
       },
       "resource":{
          "additionalProperties":false,
