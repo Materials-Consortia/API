@@ -23,7 +23,9 @@
                      "type":"string"
                   }
                },
-               "required":"representation",
+               "required":[
+                  "representation"
+               ],
                "type":"object"
             },
             "response_message":{
