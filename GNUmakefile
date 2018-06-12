@@ -94,11 +94,11 @@ ${TEST_DIR}/.%.d: ${TEST_DIR}/%.sh
 
 # The 'make run' target for quick testing of grammars:
 
-GEN_DIR = generated
-GRAM_DIR = grammars
-
-GRAMMAR ?= ${GRAM_DIR}/flat-filters.ebnf
-GRAMMAT ?= ${GRAMMAR:${GRAM_DIR}/%.ebnf=${GEN_DIR}/%.g}
+## GEN_DIR = generated
+## GRAM_DIR = grammars
+## 
+## GRAMMAR ?= ${GRAM_DIR}/flat-filters.ebnf
+GRAMMAT ?= $(word 1,$(sort ${GRAMMAR_FILES}))
 TEXT_TO_PARSE ?= filter.txt
 
 .PHONY: run
