@@ -1,0 +1,2 @@
+PERL5LIB := externals/mojo/lib:externals/json-validator/lib:${PERL5LIB}
+export PERL5LIB
