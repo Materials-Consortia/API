@@ -56,34 +56,6 @@
       "meta":{
          "$ref":"definitions.json#/definitions/meta"
       },
-      "query":{
-         "properties":{
-            "api_version":{
-               "type":"string"
-            },
-            "data_available":{
-               "type":"integer"
-            },
-            "data_returned":{
-               "type":"integer"
-            },
-            "last_id":{
-               "type":"string"
-            },
-            "representation":{
-               "type":"string"
-            },
-            "time_stamp":{
-               "type":"string"
-            }
-         },
-         "required":[
-            "representation",
-            "api_version",
-            "time_stamp"
-         ],
-         "type":"object"
-      },
       "relationships":{
          "$ref":"http://jsonapi.org/schema#/definitions/relationships"
       },
