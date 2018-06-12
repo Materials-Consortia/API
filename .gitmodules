@@ -1,0 +1,4 @@
+[submodule "doc/OPTiMaDe"]
+	path = doc/OPTiMaDe
+	url = https://github.com/sauliusg/OPTiMaDe.git
+	branch = grammar-documentation-checks
