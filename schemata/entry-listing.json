@@ -44,6 +44,9 @@
          },
          "type":"array"
       },
+      "links":{
+         "$ref":"http://jsonapi.org/schema#/definitions/links"
+      },
       "meta":{
          "type":"object"
       },
