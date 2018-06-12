@@ -50,6 +50,12 @@
          },
          "type":"array"
       },
+      "include":{
+         "items":{
+            "$ref":"http://jsonapi.org/schema#/definitions/"
+         },
+         "type":"array"
+      },
       "links":{
          "$ref":"definitions.json#/definitions/links"
       },
