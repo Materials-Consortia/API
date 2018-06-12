@@ -1,5 +1,35 @@
 {
    "definitions":{
+      "links":{
+         "properties":{
+            "next":{
+               "oneOf":[
+                  {
+                     "type":"null"
+                  },
+                  {
+                     "type":"string"
+                  },
+                  {
+                     "additionalProperties":false,
+                     "properties":{
+                        "href":{
+                           "type":"string"
+                        },
+                        "meta":{
+                           "type":"object"
+                        }
+                     },
+                     "required":[
+                        "href"
+                     ],
+                     "type":"object"
+                  }
+               ]
+            }
+         },
+         "type":"object"
+      },
       "meta":{
          "properties":{
             "api_version":{
