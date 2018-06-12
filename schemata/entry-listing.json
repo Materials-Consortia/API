@@ -51,7 +51,7 @@
          "type":"array"
       },
       "links":{
-         "$ref":"http://jsonapi.org/schema#/definitions/links"
+         "$ref":"definitions.json#/definitions/links"
       },
       "meta":{
          "$ref":"definitions.json#/definitions/meta"
