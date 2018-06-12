@@ -81,7 +81,8 @@
       }
    },
    "required":[
-      "resource",
+      "links",
+      "meta",
       "data"
    ],
    "title":"Entry listing",
