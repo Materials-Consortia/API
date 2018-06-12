@@ -1,51 +1,106 @@
 {
-    "title": "Entry listing",
-    "type": "object",
-    "properties": {
-        "resource": {
-            "type": "object",
-            "properties": {
-                "base_url": { "type": "string" }
+   "properties":{
+      "data":{
+         "items":{
+            "properties":{
+               "attributes":{
+                  "additionalProperties":false,
+                  "patternProperties":{
+                     "^_":{
+                        "description":"domain-specific custom information"
+                     }
+                  },
+                  "properties":{
+                     "immutable_id":{
+                        "type":"string"
+                     },
+                     "last_modified":{
+                        "type":"string"
+                     },
+                     "local_id":{
+                        "type":"string"
+                     }
+                  },
+                  "required":[
+                     "local_id",
+                     "immutable_id",
+                     "last_modified"
+                  ],
+                  "type":"object"
+               },
+               "id":{
+                  "type":"string"
+               },
+               "type":{
+                  "type":"string"
+               }
             },
-            "patternProperties": {
-                "^_": {
-                    "description": "domain-specific custom information"
-                }
+            "required":[
+               "type",
+               "id",
+               "attributes"
+            ],
+            "type":"object"
+         },
+         "type":"array"
+      },
+      "meta":{
+         "type":"object"
+      },
+      "query":{
+         "properties":{
+            "api_version":{
+               "type":"string"
             },
-            "additionalProperties": false,
-            "required": [ "base_url" ]
-        },
-        "query": {
-            "type": "object",
-            "properties": {
-                "representation": { "type": "string" },
-                "api_version": { "type": "string" },
-                "time_stamp": { "type": "string" },
-                "data_returned": { "type": "integer" },
-                "data_available": { "type": "integer" },
-                "last_id": { "type": "string" }
+            "data_available":{
+               "type":"integer"
             },
-            "required": [ "representation", "api_version",
-                          "time_stamp" ]
-        },
-        "data": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "entry": { "type": "string" },
-                    "properties": { "type": "object" },
-                    "local_id": { "type": "string" },
-                    "url": { "type": "string" },
-                    "immutable_id": { "type": "string" },
-                    "last_modified": { "type": "string" }
-                },
-                "required": [ "entry", "properties", "local_id",
-                              "last_modified" ]
+            "data_returned":{
+               "type":"integer"
+            },
+            "last_id":{
+               "type":"string"
+            },
+            "representation":{
+               "type":"string"
+            },
+            "time_stamp":{
+               "type":"string"
             }
-        },
-        "response_message": { "type": "string" },
-        "meta": { "type": "object" }
-    },
-    "required": [ "query", "resource", "data" ]
+         },
+         "required":[
+            "representation",
+            "api_version",
+            "time_stamp"
+         ],
+         "type":"object"
+      },
+      "resource":{
+         "additionalProperties":false,
+         "patternProperties":{
+            "^_":{
+               "description":"domain-specific custom information"
+            }
+         },
+         "properties":{
+            "base_url":{
+               "type":"string"
+            }
+         },
+         "required":[
+            "base_url"
+         ],
+         "type":"object"
+      },
+      "response_message":{
+         "type":"string"
+      }
+   },
+   "required":[
+      "query",
+      "resource",
+      "data"
+   ],
+   "title":"Entry listing",
+   "type":"object"
 }
