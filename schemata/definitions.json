@@ -1,7 +1,16 @@
 {
    "definitions":{
       "links":{
+         "additionalProperties":false,
+         "patternProperties":{
+            "^_":{
+               "description":"domain-specific custom information"
+            }
+         },
          "properties":{
+            "base_url":{
+               "type":"string"
+            },
             "next":{
                "oneOf":[
                   {
