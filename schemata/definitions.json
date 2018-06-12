@@ -9,6 +9,7 @@
          },
          "properties":{
             "base_url":{
+               "format":"uri-reference",
                "type":"string"
             },
             "next":{
@@ -23,6 +24,7 @@
                      "additionalProperties":false,
                      "properties":{
                         "href":{
+                           "format":"uri-reference",
                            "type":"string"
                         },
                         "meta":{
