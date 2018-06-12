@@ -4,6 +4,12 @@
          "items":{
             "properties":{
                "attributes":{
+                  "additionalProperties":false,
+                  "patternProperties":{
+                     "^_":{
+                        "description":"domain-specific custom information"
+                     }
+                  },
                   "properties":{
                      "immutable_id":{
                         "type":"string"
