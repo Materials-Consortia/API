@@ -1,1 +1,1 @@
-None: None is not of type u'string'
+tools/json-validator: tests/inputs/cod_query_001.json: /data/0/last_modified: Expected string - got null.
