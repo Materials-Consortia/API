@@ -44,6 +44,12 @@
          },
          "type":"array"
       },
+      "errors":{
+         "items":{
+            "$ref":"http://jsonapi.org/schema#/definitions/error"
+         },
+         "type":"array"
+      },
       "links":{
          "$ref":"http://jsonapi.org/schema#/definitions/links"
       },
