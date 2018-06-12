@@ -52,7 +52,7 @@
       },
       "include":{
          "items":{
-            "$ref":"http://jsonapi.org/schema#/definitions/"
+            "$ref":"http://jsonapi.org/schema#/definitions/resource"
          },
          "type":"array"
       },
