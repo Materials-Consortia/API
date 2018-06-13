@@ -4,6 +4,7 @@
    "type":"object",
    "properties":{
       "data":{
+          "description": "Data returned for the query.",
           "oneOf":[
              {
                 "$ref":"entry-listing.json"
@@ -26,6 +27,7 @@
          "type":"array"
       },
       "include":{
+         "description": "Resources included with the primary data.",
          "items":{
             "$ref":"http://jsonapi.org/schema#/definitions/resource"
          },
@@ -36,9 +38,6 @@
       },
       "meta":{
          "$ref":"definitions.json#/definitions/meta"
-      },
-      "relationships":{
-         "$ref":"http://jsonapi.org/schema#/definitions/relationships"
       },
       "resource":{
          "additionalProperties":false,
