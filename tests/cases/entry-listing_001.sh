@@ -1,3 +1,3 @@
 #! /bin/sh
 
-tools/json-validator schemata/entry-listing.json tests/inputs/cod_query_001.json
+tools/json-validator schemata/response.json tests/inputs/cod_query_001.json
