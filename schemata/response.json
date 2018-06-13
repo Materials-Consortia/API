@@ -1,24 +1,22 @@
 {
-   "title":"OPTiMaDe response",
-   "description": "OPTiMaDe JSON response",
-   "type":"object",
+   "description":"OPTiMaDe JSON response",
    "properties":{
       "data":{
           "description": "Data returned for the query.",
-          "oneOf":[
-             {
-                "$ref":"entry-listing.json"
-             },
-             {
-                "$ref":"single-entry.json"
-             },
-             {
-                "$ref":"entry-info.json"
-             },
-             {
-                "$ref":"url-info.json"
-             }
-             ]
+         "oneOf":[
+            {
+               "$ref":"entry-listing.json"
+            },
+            {
+               "$ref":"single-entry.json"
+            },
+            {
+               "$ref":"entry-info.json"
+            },
+            {
+               "$ref":"base-url-info.json"
+            }
+         ]
       },
       "errors":{
          "items":{
@@ -65,5 +63,7 @@
       "links",
       "meta",
       "data"
-   ]
+   ],
+   "title":"OPTiMaDe response",
+   "type":"object"
 }
