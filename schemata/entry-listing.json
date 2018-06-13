@@ -1,8 +1,6 @@
 {
-"data":{
- "items":{
-    "$ref": "single-entry.json" 
- },
-"type":"array"
-}
+   "items":{
+      "$ref":"single-entry.json"
+   },
+   "type":"array"
 }
