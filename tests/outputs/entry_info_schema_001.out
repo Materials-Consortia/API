@@ -1,0 +1,3 @@
+tools/json-validator: tests/inputs/cod-optimade-structures-info.json: /links: Missing property.
+tools/json-validator: tests/inputs/cod-optimade-structures-info.json: /meta: Missing property.
+tools/json-validator: tests/inputs/cod-optimade-structures-info.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.)

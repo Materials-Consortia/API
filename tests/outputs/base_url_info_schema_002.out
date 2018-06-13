@@ -1,4 +1,4 @@
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /links: Missing property.
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /meta: Missing property.
-tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.) (Missing property.. Missing property.. Missing property.) Properties not allowed: api_version, available_api_versions, available_endpoints, entry_types_by_format, formats.
+tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.) Properties not allowed: api_version, available_api_versions, available_endpoints, entry_types_by_format. Properties not allowed: api_version, available_api_versions, available_endpoints, entry_types_by_format, formats.
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /resource/base_url: Missing property.
