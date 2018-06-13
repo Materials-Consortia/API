@@ -1,64 +1,52 @@
 {
-    "title": "Base URL info",
+    "title": "Entry info",
     "type": "object",
     "properties": {
-        "resource": {
+        "description": {
+            "type": "string"
+        },
+        "properties": {
             "type": "object",
-            "properties": {
-                "base_url": { "type": "string" }
-            },
             "patternProperties": {
-                "^_": {
-                    "description": "domain-specific custom information"
+                "*": {
+                    "description":  {"type": "string"}
                 }
-            },
-            "additionalProperties": false,
-            "required": [ "base_url" ]
+            }
         },
-        "query": {
-            "type": "object",
-            "properties": {
-                "representation": { "type": "string" },
-                "api_version": { "type": "string" },
-                "time_stamp": { "type": "string" },
-                "data_returned": { "type": "integer" },
-                "data_available": { "type": "integer" },
-                "last_id": { "type": "string" }
-            },
-            "required": [ "representation", "api_version",
-                          "time_stamp" ]
-        },
-        "data": {
+        "formats": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "description": { "type": "string" },
-                    "properties": {
-                        "type": "object"
+                "type": "string",
+                "enum": ["json"]
+            }
+        },
+        "output_fields_by_format": {
+            "type": "object",
+            "patternProperties": {
+                "*": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     },
-                    "formats": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "output_fields_by_format": {
-                        "type": "object",
-                        "patternProperties": {
-                            ".*": {
-                                "type": "array",
-                                "items": { "type": "string" }
-                            }
-                        }
-                    }
+                    "uniqueItems": true
                 }
             },
-            "required": [ "description", "properties", "formats",
-                          "output_fields_by_format" ]
-        },
-        "response_message": { "type": "string" },
-        "meta": { "type": "object" }
+            "properties": {
+                "json": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
     },
-    "required": [ "query", "resource", "data" ]
+    "required": [
+        "description",
+        "properties",
+        "formats",
+        "output_fields_by_format"
+    ],
+    "additionalProperties": false
 }
+
