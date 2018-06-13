@@ -2,49 +2,30 @@
     "title": "Base URL info",
     "type": "object",
     "properties": {
-        "resource": {
-            "type": "object",
-            "properties": {
-                "base_url": { "type": "string" }
-            },
-            "patternProperties": {
-                "^_": {
-                    "description": "domain-specific custom information"
-                }
-            },
-            "additionalProperties": false,
-            "required": [ "base_url" ]
+        "type": {
+            "type":"string",
+            "enum": [ "info" ]
         },
-        "query": {
-            "type": "object",
-            "properties": {
-                "representation": { "type": "string" },
-                "api_version": { "type": "string" },
-                "time_stamp": { "type": "string" },
-                "data_returned": { "type": "integer" },
-                "data_available": { "type": "integer" },
-                "last_id": { "type": "string" }
-            },
-            "required": [ "representation", "api_version",
-                          "time_stamp" ]
+        "id": {
+            "type":"string",
+            "enum": [ "/" ]
         },
-        "data": {
-            "type": "object",
+        "attributes": {
+            "type":"object",
             "properties": {
-                "api_version": { "type": "string" },
+                "api_version": {"type": "string"},
                 "available_api_versions": {
                     "type": "object",
                     "patternProperties": {
                         ".*": {
+                            "format":"uri-reference",
                             "type": "string"
                         }
-                    },
-                    "additionalProperties": false
+                    }
                 },
                 "formats": {
                     "type": "array",
-                    "items": { "type": "string" },
-                    "uniqueItems": true
+                    "enum": ["json"]
                 },
                 "entry_types_by_format": {
                     "type": "object",
@@ -54,14 +35,20 @@
                             "items": { "type": "string" },
                             "uniqueItems": true
                         }
-                    }
+                    },
+                    "properties":{
+                        "json":{
+                            "type": "array",
+                            "items": {
+                                "enum": ["structure"]
+                            }
+                        }
+                     }
                 }
             },
-            "required": [ "api_version", "available_api_versions",
-                          "formats", "entry_types_by_format" ]
-        },
-        "response_message": { "type": "string" },
-        "meta": { "type": "object" }
+            "additionalProperties": false
+        }
     },
-    "required": [ "query", "resource", "data" ]
+    "required": [ "type", "id", "attributes" ],
+    "additionalProperties": false
 }
