@@ -21,11 +21,15 @@
                             "format":"uri-reference",
                             "type": "string"
                         }
-                    }
+                    },
+                    "additionalProperties": false
                 },
                 "formats": {
                     "type": "array",
-                    "enum": ["json"]
+                    "items": {
+                        "type": "string",
+                        "enum": ["json"]
+                    }
                 },
                 "entry_types_by_format": {
                     "type": "object",
@@ -40,6 +44,7 @@
                         "json":{
                             "type": "array",
                             "items": {
+                                "type": "string",
                                 "enum": ["structure"]
                             }
                         }
