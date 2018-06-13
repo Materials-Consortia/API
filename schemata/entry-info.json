@@ -9,7 +9,12 @@
             "type": "object",
             "patternProperties": {
                 ".*": {
-                    "description":  {"type": "string"}
+                    "type": "object",
+                    "properties": {
+                        "description": { "type": "string" },
+                        "unit": { "type" : "string" }
+                    },
+                    "required": [ "description" ]
                 }
             }
         },
