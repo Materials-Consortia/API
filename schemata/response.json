@@ -13,7 +13,7 @@
                "$ref":"entry-info.json"
             },
             {
-               "$ref":"url-info.json"
+               "$ref":"base-url-info.json"
             }
          ]
       },
