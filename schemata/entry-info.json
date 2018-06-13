@@ -8,7 +8,7 @@
         "properties": {
             "type": "object",
             "patternProperties": {
-                "*": {
+                ".*": {
                     "description":  {"type": "string"}
                 }
             }
@@ -23,7 +23,7 @@
         "output_fields_by_format": {
             "type": "object",
             "patternProperties": {
-                "*": {
+                ".*": {
                     "type": "array",
                     "items": {
                         "type": "string"
