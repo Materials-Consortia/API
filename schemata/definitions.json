@@ -18,6 +18,7 @@
                      "type":"null"
                   },
                   {
+                     "format":"uri-reference",
                      "type":"string"
                   },
                   {

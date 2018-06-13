@@ -73,6 +73,7 @@
          },
          "properties":{
             "base_url":{
+               "format":"uri-reference",
                "type":"string"
             }
          },
