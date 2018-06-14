@@ -1,2 +1,0 @@
-tools/json-validator: tests/inputs/cod-optimade-structures-info.json: /meta/data_returned: Missing property.
-tools/json-validator: tests/inputs/cod-optimade-structures-info.json: /meta/more_data_available: Missing property.

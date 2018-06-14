@@ -244,14 +244,16 @@
          "maintainer":{
             "email":"cod-bugs@ibt.lt"
          },
-         "source_url":"svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@208279",
+         "source_url":"svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@208352",
          "title":"Crystallography Open Database",
          "version":"v0.9.5-alpha.2"
       },
       "api_version":"v0.9.5",
+      "data_returned":1,
+      "more_data_available":false,
       "query":{
          "representation":"/structures/info?"
       },
-      "time_stamp":"2018-06-13T21:08:51Z"
+      "time_stamp":"2018-06-13T21:54:17Z"
    }
 }
