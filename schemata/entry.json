@@ -1,0 +1,7 @@
+{
+   "oneOf":[
+      {
+         "$ref":"structure.json"
+      }
+    ]
+}
