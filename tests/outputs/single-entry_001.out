@@ -1,6 +1,0 @@
-tools/json-validator: tests/inputs/cod_query_001.json: /query: Missing property.
-tools/json-validator: tests/inputs/cod_query_001.json: /resource: Missing property.
-tools/json-validator: tests/inputs/cod_query_001.json: /data/0/entry: Missing property.
-tools/json-validator: tests/inputs/cod_query_001.json: /data/0/last_modified: Missing property.
-tools/json-validator: tests/inputs/cod_query_001.json: /data/0/local_id: Missing property.
-tools/json-validator: tests/inputs/cod_query_001.json: /data/0/properties: Missing property.

@@ -1,0 +1,3 @@
+tools/json-validator: tests/inputs/cod_query_002.json: /links: Missing property.
+tools/json-validator: tests/inputs/cod_query_002.json: /meta: Missing property.
+tools/json-validator: tests/inputs/cod_query_002.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.) (Missing property.. Missing property.. Missing property.) Properties not allowed: entry, immutable_id, last_modified, local_id, url. Properties not allowed: entry, immutable_id, last_modified, local_id, properties, url.

@@ -8,7 +8,7 @@
                "$ref":"entry-listing.json"
             },
             {
-               "$ref":"single-entry.json"
+               "$ref":"entry-single.json"
             },
             {
                "$ref":"entry-info.json"
@@ -32,10 +32,12 @@
          "type":"array"
       },
       "links":{
-         "$ref":"definitions.json#/definitions/links"
+         "$ref":"http://jsonapi.org/schema#/definitions/links"
       },
       "meta":{
-         "$ref":"definitions.json#/definitions/meta"
+        "^_":{
+           "description":"domain-specific custom information"
+        }
       },
       "resource":{
          "additionalProperties":false,
