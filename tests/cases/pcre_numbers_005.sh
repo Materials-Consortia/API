@@ -4,4 +4,4 @@
 # real (floating-point) numbers.
 
 #grep -vP "^$(grep -vE '^#|^ *$' grammars/numbers.pcre)\$" tests/inputs/not-numbers.lst
-perl -ne "print if /^$(grep -vE '^#|^ *$' grammars/numbers.pcre)\$/" tests/inputs/not-numbers.lst
+perl -ne "print unless /^$(grep -vE '^#|^ *$' grammars/numbers.pcre)\$/" tests/inputs/not-numbers.lst
