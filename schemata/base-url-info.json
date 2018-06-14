@@ -11,7 +11,7 @@
                "available_api_versions":{
                   "additionalProperties":false,
                   "patternProperties":{
-                     ".*":{
+                     "^[0-9]+.[0-9]+.[0-9]+$":{
                         "format":"uri-reference",
                         "type":"string"
                      }
