@@ -35,7 +35,7 @@
             "$ref": "http://jsonapi.org/schema#/definitions/links"
         },
         "meta": {
-            "$ref": "definitions.json#/definitions/meta"
+            "$ref": "definitions.json#/meta"
         },
         "relationships": {
             "$ref": "http://jsonapi.org/schema#/definitions/relationships"
