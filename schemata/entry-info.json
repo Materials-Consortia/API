@@ -12,7 +12,8 @@
                ],
                "type":"string"
             },
-            "type":"array"
+            "type":"array",
+            "uniqueItems":true
          },
          "output_fields_by_format":{
             "patternProperties":{
@@ -29,7 +30,8 @@
                   "items":{
                      "type":"string"
                   },
-                  "type":"array"
+                  "type":"array",
+                  "uniqueItems":true
                }
             },
             "type":"object"
