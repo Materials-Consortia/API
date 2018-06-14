@@ -11,10 +11,11 @@
         },
         "attributes": {
             "type": "object",
-            "properties": { 
+            "properties": {
                 "local_id": {
                     "description": "The entry's identifier in the local database.",
                     "type": "string"
+                }
             },
             "immutable_id": {
                 "description": "The entry's immutable identifier.",
@@ -38,10 +39,7 @@
         },
         "relationships": {
             "$ref": "http://jsonapi.org/schema#/definitions/relationships"
-        },
-        "required": ["type", "id", "attributes"]
+        }
     },
-    "oneOf": [{
-        "$ref": "structure.json"
-    }]
+    "required": ["type", "id", "attributes"]
 }
