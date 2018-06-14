@@ -1,4 +1,4 @@
 tools/json-validator: tests/inputs/cod-optimade-info-bad-custom.json: /links: Missing property.
 tools/json-validator: tests/inputs/cod-optimade-info-bad-custom.json: /meta: Missing property.
-tools/json-validator: tests/inputs/cod-optimade-info-bad-custom.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.) Properties not allowed: api_version, available_api_versions, available_endpoints, entry_types_by_format.
+tools/json-validator: tests/inputs/cod-optimade-info-bad-custom.json: /data: oneOf failed: (Missing property.. Missing property.. Missing property.)
 tools/json-validator: tests/inputs/cod-optimade-info-bad-custom.json: /resource: Properties not allowed: cod_revision.
