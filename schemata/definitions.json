@@ -93,6 +93,7 @@
         "data_returned",
         "more_data_available"
      ],
+     "title":"Definitions",
      "type":"object"
   }
 }

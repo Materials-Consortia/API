@@ -1,4 +1,5 @@
 {
+   "title": "Entry",
    "oneOf":[
       {
          "$ref":"structure.json"
