@@ -1,5 +1,6 @@
 {
     "title": "Entry base",
+    "$$target": "entry-base.json",
     "type": "object",
     "properties": {
         "type": {

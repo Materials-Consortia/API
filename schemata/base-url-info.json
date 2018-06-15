@@ -74,5 +74,6 @@
       "type":"object"
    },
    "title":"Base URL info",
+   "$$target": "base-url-info.json",
    "type":"array"
 }

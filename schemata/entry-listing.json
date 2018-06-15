@@ -1,5 +1,6 @@
 {
    "title": "Entry listing",
+   "$$target": "entry-listing.json",
    "items":{
       "$ref":"entry-base.json"
    },
