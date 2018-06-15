@@ -70,6 +70,5 @@
       "type":"object"
    },
    "title":"Entry info",
-    "$$target": "entry-info.json",
    "type":"array"
 }

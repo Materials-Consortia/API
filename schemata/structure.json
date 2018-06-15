@@ -1,6 +1,5 @@
 {
     "title": "Structure",
-    "$$target": "structure.json",
     "type": "object",
     "properties": {
         "attributes": {

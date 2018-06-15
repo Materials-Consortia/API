@@ -1,6 +1,5 @@
 {
    "title": "Single entry",
-   "$$target": "entry-single.json",
    "items":{
       "$ref":"entry-base.json"
    },

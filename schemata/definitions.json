@@ -94,7 +94,6 @@
         "more_data_available"
      ],
      "title":"Definitions",
-     "$$target": "definitions.json",
      "type":"object"
   }
 }

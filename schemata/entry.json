@@ -1,6 +1,5 @@
 {
    "title": "Entry",
-   "$$target": "entry.json",
    "oneOf":[
       {
          "$ref":"structure.json"
