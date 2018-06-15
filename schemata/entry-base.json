@@ -1,4 +1,5 @@
 {
+    "title": "Entry base",
     "type": "object",
     "properties": {
         "type": {

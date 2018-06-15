@@ -1,4 +1,5 @@
 {
+   "title": "Single entry",
    "items":{
       "$ref":"entry-base.json"
    },
