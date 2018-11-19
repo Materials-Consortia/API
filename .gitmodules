@@ -1,3 +1,7 @@
+[submodule "doc/OPTiMaDe"]
+	path = doc/OPTiMaDe
+	url = https://github.com/sauliusg/OPTiMaDe.git
+	branch = grammar-documentation-checks
 [submodule "externals/json-validator"]
 	path = externals/json-validator
 	url = https://github.com/jhthorsen/json-validator.git

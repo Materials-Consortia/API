@@ -52,76 +52,36 @@ value: identifier | number | string
 
 # Expressions
 
-expression: term
-          | term OR expression
+expression: andexpression
+          | andexpression OR expression
             {
                 return [ @_[1..$#_] ];
             }
     ;
 
-term: atom
-    | atom AND term
+andexpression: term
+    | term AND andexpression
         {
             return [ @_[1..$#_] ];
         }
     ;
 
-atom: comparison
-    | NOT comparison
+term: comparison
+    | NOT term
         {
             return [ @_[1..$#_] ];
         }
-    | '(' andcomparisons ')'
-        {
-            return [ @_[1..$#_] ];
-        }
-    | NOT '(' andcomparisons ')'
+    | '(' expression ')'
         {
             return [ @_[1..$#_] ];
         }
     ;
 
-andcomparisons: andcomparison
-              | andcomparison OR andcomparisons
-                {
-                    return [ @_[1..$#_] ];
-                }
+comparison: value operator value
+    {
+        return [ @_[1..$#_] ];
+    }
     ;
-
-andcomparison: comparison
-             | NOT comparison
-                {
-                    return [ @_[1..$#_] ];
-                }
-             | comparison comparisons
-                {
-                    return [ @_[1..$#_] ];
-                }
-             | NOT comparison comparisons
-                {
-                    return [ @_[1..$#_] ];
-                }
-    ;
-
-comparisons: AND comparison
-            {
-                return [ @_[1..$#_] ];
-            }
-           | AND NOT comparison
-            {
-                return [ @_[1..$#_] ];
-            }
-           | AND comparison comparisons
-            {
-                return [ @_[1..$#_] ];
-            }
-           | AND NOT comparison comparisons
-            {
-                return [ @_[1..$#_] ];
-            }
-    ;
-
-# Comparison operator tokens:
 
 operator: '<'
         | '<' '='
@@ -138,12 +98,6 @@ operator: '<'
             {
                 return join( '', @_[1..$#_] );
             }
-    ;
-
-comparison: value operator value
-    {
-        return [ @_[1..$#_] ];
-    }
     ;
 
 # Identifier syntax
