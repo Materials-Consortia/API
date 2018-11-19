@@ -1,0 +1,46 @@
+{
+    "title": "Entry base",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "Type of the entry.",
+            "type": "string"
+        },
+        "id": {
+            "description": "Together with the type identifies entry uniquely. Can be the local id.",
+            "type": "string"
+        },
+        "attributes": {
+            "type": "object",
+            "properties": {
+                "local_id": {
+                    "description": "The entry's identifier in the local database.",
+                    "type": "string"
+                }
+            },
+            "immutable_id": {
+                "description": "The entry's immutable identifier.",
+                "type": "string"
+            },
+            "modification_date": {
+                "description": "The entry's last modification time in ISO 8601 format.",
+                "type": "string"
+            },
+            "patternProperties": {
+                "^_":{
+                   "description":"domain-specific custom information"
+                }
+            }
+        },
+        "links": {
+            "$ref": "http://jsonapi.org/schema#/definitions/links"
+        },
+        "meta": {
+            "$ref": "definitions.json#/meta"
+        },
+        "relationships": {
+            "$ref": "http://jsonapi.org/schema#/definitions/relationships"
+        }
+    },
+    "required": ["type", "id", "attributes"]
+}

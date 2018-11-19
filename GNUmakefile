@@ -199,9 +199,10 @@ ${OUTP_DIR}/%.out: ${TEST_DIR}/%.sh ${EXTRA_TEST_DEPS}
 .PHONY: listdiff
 
 listdiff: ## test
-	@-( test -d ${OUTP_DIR} && \
-	    ls -l ${OUTP_DIR}/*.diff | awk '{if( $$5 > 0 ) print}' ) | sort -u || \
-	    true
+	@- test -d ${OUTP_DIR} && \
+	    find ${OUTP_DIR} -name '*.diff' -size +0 \
+		| xargs --no-run-if-empty ls -1 \
+		| sort -u
 
 #------------------------------------------------------------------------------
 

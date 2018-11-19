@@ -1,67 +1,78 @@
 {
-    "title": "Base URL info",
-    "type": "object",
-    "properties": {
-        "resource": {
-            "type": "object",
-            "properties": {
-                "base_url": { "type": "string" }
+   "items":{
+      "additionalProperties":false,
+      "properties":{
+         "attributes":{
+            "additionalProperties":false,
+            "properties":{
+               "api_version":{
+                  "type":"string"
+               },
+               "available_api_versions":{
+                  "additionalProperties":false,
+                  "patternProperties":{
+                     "^[0-9]+.[0-9]+.[0-9]+$":{
+                        "format":"uri-reference",
+                        "type":"string"
+                     }
+                  },
+                  "type":"object"
+               },
+               "entry_types_by_format":{
+                  "patternProperties":{
+                     ".*":{
+                        "items":{
+                           "type":"string"
+                        },
+                        "type":"array",
+                        "uniqueItems":true
+                     }
+                  },
+                  "properties":{
+                     "json":{
+                        "items":{
+                           "enum":[
+                              "structure"
+                           ],
+                           "type":"string"
+                        },
+                        "type":"array"
+                     }
+                  },
+                  "type":"object"
+               },
+               "formats":{
+                  "items":{
+                     "enum":[
+                        "json"
+                     ],
+                     "type":"string"
+                  },
+                  "type":"array"
+               }
             },
-            "patternProperties": {
-                "^_": {
-                    "description": "domain-specific custom information"
-                }
-            },
-            "additionalProperties": false,
-            "required": [ "base_url" ]
-        },
-        "query": {
-            "type": "object",
-            "properties": {
-                "representation": { "type": "string" },
-                "api_version": { "type": "string" },
-                "time_stamp": { "type": "string" },
-                "data_returned": { "type": "integer" },
-                "data_available": { "type": "integer" },
-                "last_id": { "type": "string" }
-            },
-            "required": [ "representation", "api_version",
-                          "time_stamp" ]
-        },
-        "data": {
-            "type": "object",
-            "properties": {
-                "api_version": { "type": "string" },
-                "available_api_versions": {
-                    "type": "object",
-                    "patternProperties": {
-                        ".*": {
-                            "type": "string"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "formats": {
-                    "type": "array",
-                    "items": { "type": "string" },
-                    "uniqueItems": true
-                },
-                "entry_types_by_format": {
-                    "type": "object",
-                    "patternProperties": {
-                        ".*": {
-                            "type": "array",
-                            "items": { "type": "string" },
-                            "uniqueItems": true
-                        }
-                    }
-                }
-            },
-            "required": [ "api_version", "available_api_versions",
-                          "formats", "entry_types_by_format" ]
-        },
-        "response_message": { "type": "string" },
-        "meta": { "type": "object" }
-    },
-    "required": [ "query", "resource", "data" ]
+            "type":"object"
+         },
+         "id":{
+            "enum":[
+               "/"
+            ],
+            "type":"string"
+         },
+         "type":{
+            "enum":[
+               "info"
+            ],
+            "type":"string"
+         }
+      },
+      "required":[
+         "type",
+         "id",
+         "attributes"
+      ],
+      "type":"object"
+   },
+   "title":"Base URL info",
+   "type":"array"
 }

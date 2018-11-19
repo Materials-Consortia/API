@@ -1,0 +1,3 @@
+tools/json-validator: tests/inputs/cod-optimade-info-custom-field.json: /links: Missing property.
+tools/json-validator: tests/inputs/cod-optimade-info-custom-field.json: /meta: Missing property.
+tools/json-validator: tests/inputs/cod-optimade-info-custom-field.json: /data: oneOf failed: Expected array, got object.

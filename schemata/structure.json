@@ -1,0 +1,34 @@
+{
+    "title": "Structure",
+    "type": "object",
+    "properties": {
+        "attributes": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Type of the entry.",
+                    "type": "string",
+                    "enum":  [ "structure" ]
+                },
+                "elements": { 
+                    "description": "Names of elements found in the structure.",
+                    "type": "string" 
+                },
+                "nelements": { 
+                    "description": "Number of elements found in the structure.",
+                    "type": "integer" 
+                },
+                "chemical_formula": { 
+                    "description": "Chemical formula of the structure.",
+                    "type": "string" 
+                },
+                "formula_prototype": { 
+                    "description": "The formula prototype obtained by sorting elements by the occurrence number in the reduced chemical formula and replace them with subsequent alphabet letters A, B, C and so on.",
+                    "type": "string" 
+                }
+             },
+             "required": [ "type", "elements", "nelements", "chemical_formula",
+                          "formula_prototype" ]
+        }
+    }
+}

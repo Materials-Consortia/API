@@ -1,3 +1,3 @@
 #! /bin/sh
 
-jsonschema -i tests/inputs/cod-optimade-info-bad-custom.json schemata/base-url-info.json
+tools/json-validator schemata/schema.json tests/inputs/cod-optimade-info-bad-custom.json

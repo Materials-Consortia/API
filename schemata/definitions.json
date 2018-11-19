@@ -1,0 +1,99 @@
+{
+  "links":{
+     "additionalProperties":false,
+     "patternProperties":{
+        "^_":{
+           "description":"domain-specific custom information"
+        }
+     },
+     "properties":{
+        "base_url":{
+           "format":"uri-reference",
+           "type":"string"
+        },
+        "next":{
+           "oneOf":[
+              {
+                 "type":"null"
+              },
+              {
+                 "format":"uri-reference",
+                 "type":"string"
+              },
+              {
+                 "additionalProperties":false,
+                 "properties":{
+                    "href":{
+                       "format":"uri-reference",
+                       "type":"string"
+                    },
+                    "meta":{
+                       "type":"object"
+                    }
+                 },
+                 "required":[
+                    "href"
+                 ],
+                 "type":"object"
+              }
+           ]
+        }
+     },
+     "type":"object"
+  },
+  "meta":{
+     "properties":{
+        "api_version":{
+           "description": "The version of the application programming interface.",
+           "type":"string"
+        },
+        "data_available":{
+           "description": "Total number of data available for the given query.",
+           "type":"integer"
+        },
+        "data_returned":{
+           "description": "The length of data returned.",
+           "type":"integer"
+        },
+        "last_id":{
+           "description": "Identifier of last returned data.",
+           "type":"string"
+        },
+        "more_data_available":{
+           "description": "Whether all data for this query have been returned.",
+           "type":"boolean"
+        },
+        "query":{
+           "description": "Information on the requested query.",
+           "properties":{
+              "representation":{
+                 "description": "The part of the URL following the base URL.",
+                 "type":"string"
+              }
+           },
+           "required":[
+              "representation"
+           ],
+           "type":"object"
+        },
+        "response_message":{
+           "description": "Custom response message.",
+           "type":"string"
+        },
+        "time_stamp":{
+           "description": "Time stamp of when the query was executed. Date and time are specified in ISO 8601 format. Times MUST be timezone-aware (i.e. MUST NOT be local times), in one of the formats allowed by ISO 8601 (i.e. either be in UTC, and then end with a Z, or indicate explicitly the offset).",
+           "format":"date-time",
+           "type":"string"
+        }
+     },
+     "required":[
+        "query",
+        "api_version",
+        "time_stamp",
+        "data_returned",
+        "more_data_available"
+     ],
+     "title":"Definitions",
+     "type":"object"
+  }
+}

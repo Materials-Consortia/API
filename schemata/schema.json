@@ -1,0 +1,71 @@
+{
+   "description":"OPTiMaDe JSON response",
+   "properties":{
+      "data":{
+          "description": "Data returned for the query.",
+         "oneOf":[
+            {
+               "$ref":"entry-listing.json"
+            },
+            {
+               "$ref":"entry-single.json"
+            },
+            {
+               "$ref":"entry-info.json"
+            },
+            {
+               "$ref":"base-url-info.json"
+            }
+         ]
+      },
+      "errors":{
+         "items":{
+            "$ref":"http://jsonapi.org/schema#/definitions/error"
+         },
+         "type":"array"
+      },
+      "include":{
+         "description": "Resources included with the primary data.",
+         "items":{
+            "$ref":"http://jsonapi.org/schema#/definitions/resource"
+         },
+         "type":"array"
+      },
+      "links":{
+         "$ref":"http://jsonapi.org/schema#/definitions/links"
+      },
+      "meta":{
+        "^_":{
+           "description":"domain-specific custom information"
+        }
+      },
+      "resource":{
+         "additionalProperties":false,
+         "patternProperties":{
+            "^_":{
+               "description":"domain-specific custom information"
+            }
+         },
+         "properties":{
+            "base_url":{
+               "format":"uri-reference",
+               "type":"string"
+            }
+         },
+         "required":[
+            "base_url"
+         ],
+         "type":"object"
+      },
+      "response_message":{
+         "type":"string"
+      }
+   },
+   "required":[
+      "links",
+      "meta",
+      "data"
+   ],
+   "title":"OPTiMaDe response",
+   "type":"object"
+}

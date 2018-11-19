@@ -1,37 +1,47 @@
 {
-   "resource" : {
-      "base_url" : "http://www.crystallography.net/cod/optimade/1.0.0-alpha.1/"
-   },
-   "query" : {
-      "time_stamp" : "2017-02-08T11:16:33Z",
-      "api_version" : "1.0.0-alpha.1",
-      "representation" : "/info?",
-      "implementation" : {
-         "maintainer" : {
-            "email" : "cod-bugs@ibt.lt"
+   "data":[
+      {
+         "attributes":{
+            "api_version":"v0.9.5",
+            "available_api_versions":{
+               "v0.9.5":"http://www.crystallography.net/cod/optimade/v0.9.5/"
+            },
+            "available_endpoints":[
+               "structures",
+               "all",
+               "info"
+            ],
+            "entry_types_by_format":{
+               "json":[
+                  "structure"
+               ]
+            },
+            "formats":[
+               "json"
+            ]
          },
-         "version" : "1.0.0-alpha.7",
-         "source_url" : "svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@191886",
-         "title" : "Crystallography Open Database"
+         "id":"/",
+         "type":"info"
       }
+   ],
+   "links":{
+      "base_url":"http://www.crystallography.net/cod/optimade/v0.9.5/"
    },
-   "data" : {
-      "api_version" : "1.0.0-alpha.1",
-      "formats" : [
-         "json"
-      ],
-      "available_endpoints" : [
-         "structures",
-         "all",
-         "info"
-      ],
-      "entry_types_by_format" : {
-         "json" : [
-            "structures"
-         ]
+   "meta":{
+      "_cod_implementation":{
+         "maintainer":{
+            "email":"cod-bugs@ibt.lt"
+         },
+         "source_url":"svn://www.crystallography.net/cod/trunk/cod/cgi-bin/optimade.pl@208355",
+         "title":"Crystallography Open Database",
+         "version":"v0.9.5-alpha.2"
       },
-      "available_api_versions" : {
-         "1.0.0-alpha.1" : "http://www.crystallography.net/cod/optimade/1.0.0-alpha.1/"
-      }
+      "api_version":"v0.9.5",
+      "data_returned":1,
+      "more_data_available":false,
+      "query":{
+         "representation":"/info?"
+      },
+      "time_stamp":"2018-06-13T22:25:58Z"
    }
 }

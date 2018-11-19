@@ -1,0 +1,1 @@
+tools/json-validator: tests/inputs/cod-optimade-info.json: /data: oneOf failed: Properties not allowed: attributes, id, type. Properties not allowed: available_endpoints.

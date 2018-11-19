@@ -1,0 +1,36 @@
+#!/usr/bin/env perl
+
+#------------------------------------------------------------------------------
+#$Author: andrius $
+#$Date: 2018-06-05 13:21:26 +0300 (Tue, 05 Jun 2018) $
+#$Revision: 698 $
+#$URL: svn+ssh://saulius-grazulis.lt/home/saulius/svn-repositories/scripts/json-validator $
+#------------------------------------------------------------------------------
+#*
+#  Validate JSON file against JSON schema using JSON::Validator. Can
+#  be used to validate as many as wanted JSON files against one schema.
+#  Schema must be provided as the first parameter.
+#
+#  USAGE:
+#
+#       json-validator schema.json *.json
+#**
+
+use strict;
+use warnings;
+use JSON;
+use JSON::Validator; # sudo apt-get install libjson-validator-perl
+
+my $validator = JSON::Validator->new;
+$validator->schema( shift @ARGV );
+
+@ARGV = ( '-' ) unless @ARGV;
+
+for my $file (@ARGV) {
+    open( my $inp, $file ) or die "unable to open the file '$file'";
+    my $json = decode_json( join( "\n", <$inp> ) );
+    close( $inp );
+
+    my @errors = $validator->validate( $json );
+    print STDERR map { "$0: $file: $_\n" } @errors;
+}

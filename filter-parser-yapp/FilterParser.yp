@@ -283,7 +283,7 @@ sub _Lexer
         while( $changed ) {
             $changed = 0;
             if( $self->YYData->{INPUT} =~
-                    s/^([A-Za-z_0-9 \t!#$%&\'\(\)\*\+,\-\.\/\:;<=>\?@\[\]\^`\{\|\}\~\P{ASCII}]+)// ) {
+                    s/^([A-Za-z_0-9 \t!#\$\%&\'\(\)\*\+,\-\.\/\:;<=>\?@\[\]\^`\{\|\}\~\P{ASCII}]+)// ) {
                 $string .= $1;
                 $changed = 1;
             }
