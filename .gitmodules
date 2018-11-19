@@ -3,8 +3,8 @@
 	url = https://github.com/sauliusg/OPTiMaDe.git
 	branch = grammar-documentation-checks
 [submodule "externals/json-validator"]
-           path = externals/json-validator
-           url = https://github.com/jhthorsen/json-validator.git
+	path = externals/json-validator
+	url = https://github.com/jhthorsen/json-validator.git
 [submodule "externals/mojo"]
-           path = externals/mojo
-           url = https://github.com/kraih/mojo.git
+	path = externals/mojo
+	url = https://github.com/kraih/mojo.git
