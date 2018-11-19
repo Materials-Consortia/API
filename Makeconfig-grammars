@@ -1,0 +1,6 @@
+#---*- Makefile -*-------------------------------------------------------
+
+# Configure location of the *.md file that contains documentations of
+# OPTiMaDe grammars:
+
+MD_FILE_DIR = doc/OPTiMaDe
