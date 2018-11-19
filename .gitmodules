@@ -5,6 +5,8 @@
 [submodule "externals/json-validator"]
 	path = externals/json-validator
 	url = https://github.com/jhthorsen/json-validator.git
+	branch = master
 [submodule "externals/mojo"]
 	path = externals/mojo
 	url = https://github.com/kraih/mojo.git
+	branch = master
