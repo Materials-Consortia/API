@@ -1,4 +1,4 @@
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /links: Missing property.
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /meta: Missing property.
-tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /data: oneOf failed: Expected array, got object.
+tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /data: /oneOf Expected array, got object.
 tools/json-validator: tests/inputs/cod-optimade-info-missing-base-url.json: /resource/base_url: Missing property.

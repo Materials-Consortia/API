@@ -50,7 +50,7 @@ but as of November 2018 this does not resolve references like `"$ref": file.json
  * GNU Make
  * Bourne shell
  * GNU textutils
- * perl with JSON module  
+ * perl with JSON::Validator module (3.04 or later):
    `sudo cpan JSON JSON::Validator`
 
 ```
