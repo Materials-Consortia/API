@@ -2,7 +2,7 @@
    "description":"OPTiMaDe JSON response",
    "properties":{
       "data":{
-          "description": "Data returned for the query.",
+         "description": "Data returned for the query.",
          "oneOf":[
             {
                "$ref":"entry-listing.json"
