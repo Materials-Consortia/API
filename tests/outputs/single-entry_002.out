@@ -1,10 +1,2 @@
 tools/json-validator: tests/inputs/cod_query_002.json: /links: Missing property.
 tools/json-validator: tests/inputs/cod_query_002.json: /meta: Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/attributes: /oneOf/0 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/id: /oneOf/0 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/type: /oneOf/0 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/attributes: /oneOf/1 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/id: /oneOf/1 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0/type: /oneOf/1 Missing property.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0: /oneOf/2 Properties not allowed: entry, immutable_id, last_modified, local_id, url.
-tools/json-validator: tests/inputs/cod_query_002.json: /data/0: /oneOf/3 Properties not allowed: entry, immutable_id, last_modified, local_id, properties, url.
