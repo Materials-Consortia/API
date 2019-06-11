@@ -18,6 +18,15 @@
                   },
                   "type":"object"
                },
+               "available_endpoints":{
+                  "items":{
+                     "enum":[
+                        "structure"
+                     ],
+                     "type":"string"
+                  },
+                  "type":"array"
+               },
                "entry_types_by_format":{
                   "patternProperties":{
                      ".*":{
@@ -51,6 +60,13 @@
                   "type":"array"
                }
             },
+            "required":[
+                "api_version",
+                "available_api_versions",
+                "available_endpoints",
+                "entry_types_by_format",
+                "formats"
+            ],
             "type":"object"
          },
          "id":{
