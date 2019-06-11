@@ -1,2 +1,0 @@
-tools/json-validator: tests/inputs/cod-optimade-info.json: /data/0: /oneOf/2 Properties not allowed: attributes, id, type.
-tools/json-validator: tests/inputs/cod-optimade-info.json: /data/0/attributes: /oneOf/3 Properties not allowed: available_endpoints.
