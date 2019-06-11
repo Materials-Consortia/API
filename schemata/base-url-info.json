@@ -19,6 +19,7 @@
                   "type":"object"
                },
                "available_endpoints":{
+                  "description":"List of available endpoints",
                   "items":{
                      "enum":[
                         "structure"
