@@ -22,7 +22,7 @@
                 "description": "The entry's immutable identifier.",
                 "type": "string"
             },
-            "modification_date": {
+            "last_modified": {
                 "description": "The entry's last modification time in ISO 8601 format.",
                 "type": "string"
             },
