@@ -108,8 +108,8 @@ operator: '<'
 
 # Identifier syntax
 
-identifier: letter
-          | identifier letter
+identifier: lowercaseletter
+          | identifier lowercaseletter
             {
                 return join( '', @_[1..$#_] );
             }
