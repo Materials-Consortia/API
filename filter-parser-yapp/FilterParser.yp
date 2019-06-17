@@ -106,35 +106,6 @@ operator: '<'
             }
     ;
 
-# Identifier syntax
-
-identifier: lowercaseletter
-          | identifier lowercaseletter
-            {
-                return join( '', @_[1..$#_] );
-            }
-          | identifier digit
-            {
-                return join( '', @_[1..$#_] );
-            }
-    ;
-
-letter: uppercaseletter
-      | lowercaseletter
-    ;
-
-uppercaseletter:
-    'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' |
-    'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' |
-    'Y' | 'Z'
-    ;
-
-lowercaseletter:
-    'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' |
-    'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' |
-    'y' | 'z' | '_'
-    ;
-
 # Strings: (handled by the lexer)
 #
 # string: '"' escapedchars '"'
@@ -180,65 +151,6 @@ lowercaseletter:
 # unicodehighchar = ? [^\p{ASCII}] ? ;
 
 # Number token syntax:
-
-number: unsignednumber
-      | sign unsignednumber
-        {
-            return join( '', @_[1..$#_] );
-        }
-    ;
-
-unsignednumber: digits exponent
-                {
-                    return join( '', @_[1..$#_] );
-                }
-              | digits '.' exponent
-                {
-                    return join( '', @_[1..$#_] );
-                }
-              | digits '.' digits exponent
-                {
-                    return join( '', @_[1..$#_] );
-                }
-              | '.' digits exponent
-                {
-                    return join( '', @_[1..$#_] );
-                }
-    ;
-
-exponent: # can be empty
-            {
-                return '';
-            }
-        | 'e' digits
-            {
-                return join( '', @_[1..$#_] );
-            }
-        | 'e' sign digits
-            {
-                return join( '', @_[1..$#_] );
-            }
-        | 'E' digits
-            {
-                return join( '', @_[1..$#_] );
-            }
-        | 'E' sign digits
-            {
-                return join( '', @_[1..$#_] );
-            }
-    ;
-
-sign: '+' | '-'
-    ;
-
-digits: digit
-      | digits digit
-    {
-        return join( '', @_[1..$#_] );
-    }
-    ;
-
-digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
 
 %%
 
@@ -325,6 +237,12 @@ sub _Lexer
         }
     }
 
+    # Handling identifiers
+    if( $self->YYData->{INPUT} =~ s/^([a-z_][a-z0-9_]*)// ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( 'identifier', $1 );
+    }
+
     # Handling boolean relations
     if( $self->YYData->{INPUT} =~ s/^(AND|NOT|OR|
                                       IS|UNKNOWN|KNOWN|
@@ -332,6 +250,14 @@ sub _Lexer
                                       LENGTH|HAS|ALL|ONLY|EXACTLY|ANY)//x ) {
         $self->{USER}{CHARNO} += length( $1 );
         return( $1, $1 );
+    }
+
+    # Handling numbers
+    if( $self->YYData->{INPUT} =~ s/^([+-]?
+                                     (\d+\.?\d*|\.\d+)
+                                     ([eE][+-]?\d+)?)//x ) {
+        $self->{USER}{CHARNO} += length( $1 );
+        return( 'number', $1 );
     }
 
     my $char = substr( $self->YYData->{INPUT}, 0, 1 );
