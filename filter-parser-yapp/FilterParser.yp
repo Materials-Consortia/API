@@ -318,7 +318,10 @@ sub _Lexer
     }
 
     # Handling boolean relations
-    if( $self->YYData->{INPUT} =~ s/^(AND|NOT|OR)// ) {
+    if( $self->YYData->{INPUT} =~ s/^(AND|NOT|OR|
+                                      IS|UNKNOWN|KNOWN|
+                                      CONTAINS|STARTS|ENDS|WITH|
+                                      LENGTH|HAS|ALL|ONLY|EXACTLY|ANY)//x ) {
         $self->{USER}{CHARNO} += length( $1 );
         return( $1, $1 );
     }
