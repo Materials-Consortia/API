@@ -199,6 +199,9 @@ unsignednumber: digits exponent
     ;
 
 exponent: # can be empty
+            {
+                return '';
+            }
         | 'e' digits
             {
                 return join( '', @_[1..$#_] );
