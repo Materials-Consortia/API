@@ -39,7 +39,7 @@ value_zip: value value_zip_part
             {
                 return [ @_[1..$#_] ];
             }
-         | value operator value_zip_part
+         | operator value value_zip_part
             {
                 return [ @_[1..$#_] ];
             }
@@ -232,7 +232,7 @@ identifier_zip_addon: colon identifier
                         }
                     | identifier_zip_addon colon identifier
                         {
-                            return [ @$_[1], $_[3] ];
+                            return [ @{$_[1]}, $_[3] ];
                         }
                     ;
 
