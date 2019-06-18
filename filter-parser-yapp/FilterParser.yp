@@ -60,7 +60,7 @@ value_zip_part: colon value
               ;
 
 value_zip_list: value_zip
-              | value_zip comma value_zip
+              | value_zip_list comma value_zip
                 {
                     return [ @_[1..$#_] ];
                 }
