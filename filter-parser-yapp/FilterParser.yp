@@ -10,13 +10,9 @@ use warnings;
 
 # Rules section
 
-# The top-level 'filter' rule:
+# The top-level 'filter' rule
 
-filter: keyword expression
-    {
-        return [ @_[1..$#_] ];
-    }
-    ;
+filter: expression ;
 
 # Values
 
@@ -299,17 +295,6 @@ sub _Lexer
         $self->{USER}{LINENO} = -1 unless exists $self->{USER}{LINENO};
         $self->{USER}{LINENO}++;
         $self->{USER}{CHARNO} = 0;
-    }
-
-    # Keyword must be a first lexem and can not be preceded by space,
-    # thus it is handled exclusively by the lexer.
-    if( $self->{USER}{LINENO} == 0 && $self->{USER}{CHARNO} == 0 ) {
-        if( $self->YYData->{INPUT} =~ s/^(filter=)// ) {
-            $self->{USER}{CHARNO} += length( $1 );
-            return( 'keyword', $1 );
-        } else {
-            return( undef, undef ); # error
-        }
     }
 
     $self->YYData->{INPUT} =~ s/^(\s+)//;
