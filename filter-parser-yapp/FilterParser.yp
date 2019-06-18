@@ -18,76 +18,239 @@ filter: keyword expression
     }
     ;
 
-# Keywords (handled by the lexer)
-#
-# keyword: 'f' 'i' 'l' 't' 'e' 'r' '='
-#     {
-#         return join( '', @_[1..$#_] );
-#     }
-#     ;
-
 # Values
 
-value: identifier | number | string
-    ;
+constant: string | number ;
 
-# The white-space: (handled by the lexer)
-# 
-# space: ' ' | '\t'
-#     ;
+value: string | number | identifier ;
 
-# Boolean relations: (handled by the lexer)
-# 
-# AND: 'A' 'N' 'D'
-#     {
-#         return join( '', @_[1..$#_] );
-#     }
-#     ;
-# 
-# NOT: 'N' 'O' 'T'
-#     {
-#         return join( '', @_[1..$#_] );
-#     }
-#     ;
-# 
-# OR: 'O' 'R'
-#     {
-#         return join( '', @_[1..$#_] );
-#     }
-#     ;
-
-# Expressions
-
-expression: andexpression
-          | andexpression OR expression
+value_list: value
+          | operator value
             {
                 return [ @_[1..$#_] ];
             }
-    ;
+          | value_list comma value
+            {
+                return [ @_[1..$#_] ];
+            }
+          | value_list comma operator value
+            {
+                return [ @_[1..$#_] ];
+            }
+          ;
 
-andexpression: term
-    | term AND andexpression
-        {
-            return [ @_[1..$#_] ];
-        }
-    ;
+value_zip: value value_zip_part
+            {
+                return [ @_[1..$#_] ];
+            }
+         | value operator value_zip_part
+            {
+                return [ @_[1..$#_] ];
+            }
+         | value_zip value_zip_part
+            {
+                return [ @_[1..$#_] ];
+            }
+         ;
 
-term: comparison
-    | NOT term
-        {
-            return [ @_[1..$#_] ];
-        }
-    | '(' expression ')'
-        {
-            return [ @_[1..$#_] ];
-        }
-    ;
+value_zip_part: colon value
+                {
+                    return [ undef, $_[2] ];
+                }
+              | colon operator value
+                {
+                    return [ $_[1], $_[2] ];
+                }
+              ;
 
-comparison: value operator value
-    {
-        return [ @_[1..$#_] ];
-    }
-    ;
+value_zip_list: value_zip
+              | value_zip comma value_zip
+                {
+                    return [ @_[1..$#_] ];
+                }
+              ;
+
+# Expressions
+
+expression: expression_clause
+          | expression_clause OR expression
+            {
+                return [ @_[1..$#_] ];
+            }
+          ;
+
+expression_clause: expression_phrase
+                 | expression_phrase AND expression_clause
+                    {
+                        return [ @_[1..$#_] ];
+                    }
+                 ;
+
+expression_phrase: comparison
+                 | predicate_comparison
+                 | openingbrace expression closingbrace
+                    {
+                        return $_[2];
+                    }
+                 | NOT comparison
+                    {
+                        return [ @_[1..$#_] ];
+                    }
+                 | NOT predicate_comparison
+                    {
+                        return [ @_[1..$#_] ];
+                    }
+                 | NOT openingbrace expression closingbrace
+                    {
+                        return [ $_[1], $_[3] ];
+                    }
+                 ;
+
+comparison: constant_first_comparison | identifier_first_comparison ;
+
+identifier_first_comparison: identifier value_op_rhs
+                                {
+                                    return [ @_[1..$#_] ];
+                                }
+                           | identifier known_op_rhs
+                                {
+                                    return [ @_[1..$#_] ];
+                                }
+                           | identifier fuzzy_string_op_rhs
+                                {
+                                    return [ @_[1..$#_] ];
+                                }
+                           | identifier set_op_rhs
+                                {
+                                    return [ @_[1..$#_] ];
+                                }
+                           | identifier set_zip_op_rhs
+                                {
+                                    return [ @_[1..$#_] ];
+                                }
+                           ;
+
+constant_first_comparison: constant value_op_rhs
+                            {
+                                return [ @_[1..$#_] ];
+                            }
+                         ;
+
+predicate_comparison: length_comparison ;
+
+value_op_rhs: operator value
+                {
+                    return [ @_[1..$#_] ];
+                }
+            ;
+
+known_op_rhs: IS KNOWN
+                {
+                    return [ @_[1..$#_] ];
+                }
+            | IS UNKNOWN
+                {
+                    return [ @_[1..$#_] ];
+                }
+            ;
+
+fuzzy_string_op_rhs: CONTAINS string
+                        {
+                            return [ @_[1..$#_] ];
+                        }
+                   | STARTS string
+                        {
+                            return [ @_[1..$#_] ];
+                        }
+                   | STARTS WITH string
+                        {
+                            return [ @_[1..$#_] ];
+                        }
+                   | ENDS string
+                        {
+                            return [ @_[1..$#_] ];
+                        }
+                   | ENDS WITH string
+                        {
+                            return [ @_[1..$#_] ];
+                        }
+                   ;
+
+set_op_rhs: HAS value
+            {
+                return [ @_[1..$#_] ];
+            }
+          | HAS operator value
+            {
+                return [ @_[1..$#_] ];
+            }
+          | HAS ALL value_list
+            {
+                return [ @_[1..$#_] ];
+            }
+          | HAS EXACTLY value_list
+            {
+                return [ @_[1..$#_] ];
+            }
+          | HAS ANY value_list
+            {
+                return [ @_[1..$#_] ];
+            }
+          | HAS ONLY value_list
+            {
+                return [ @_[1..$#_] ];
+            }
+          ;
+
+set_zip_op_rhs: identifier_zip_addon HAS value_zip
+                {
+                    return [ @_[1..$#_] ];
+                }
+              | identifier_zip_addon HAS ONLY value_zip_list
+                {
+                    return [ @_[1..$#_] ];
+                }
+              | identifier_zip_addon HAS ALL value_zip_list
+                {
+                    return [ @_[1..$#_] ];
+                }
+              | identifier_zip_addon HAS EXACTLY value_zip_list
+                {
+                    return [ @_[1..$#_] ];
+                }
+              | identifier_zip_addon HAS ANY value_zip_list
+                {
+                    return [ @_[1..$#_] ];
+                }
+              ;
+
+length_comparison: LENGTH identifier operator value
+                    {
+                        return [ @_[1..$#_] ];
+                    }
+                 ;
+
+identifier_zip_addon: colon identifier
+                        {
+                            return [ $_[2] ];
+                        }
+                    | identifierzipaddon colon identifier
+                        {
+                            return [ @$_[1], $_[3] ];
+                        }
+                    ;
+
+# Separators
+
+openingbrace: '(' ;
+
+closingbrace: ')' ;
+
+comma: ',' ;
+
+colon: ':' ;
+
+# OperatorComparison operator tokens
 
 operator: '<'
         | '<' '='
@@ -105,52 +268,6 @@ operator: '<'
                 return join( '', @_[1..$#_] );
             }
     ;
-
-# Strings: (handled by the lexer)
-#
-# string: '"' escapedchars '"'
-#     {
-#         return join( '', @_[1..$#_] );
-#     }
-#     ;
-#
-# escapedchars: escapedchar
-#             | escapedchars escapedchar
-#                 {
-#                     return join( '', @_[1..$#_] );
-#                 }
-#     ;
-#
-# escapedchar: unescapedchar
-#            | '\'' '"'
-#                 {
-#                     return join( '', @_[1..$#_] );
-#                 }
-#            | '\'' '\''
-#                 {
-#                     return join( '', @_[1..$#_] );
-#                 }
-#     ;
-# 
-# unescapedchar: letter
-#              | digit
-#              | space
-#              | punctuator
-#              | unicodehighchar
-#     ;
-#
-# punctuator:
-#     '!' | '#' | '$' | '%' | '&' | '\''| '(' | ')' | '*' | '+' | ',' | 
-#     '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' |
-#     ']' | '^' | '`' | '{' | '|' | '}' | '~'
-#     ;
-#
-# The 'UnicodeHighChar' specifies all Unicode characters above 0x7F;
-# the syntax used is the onw compatible with Grammatica:
-#
-# unicodehighchar = ? [^\p{ASCII}] ? ;
-
-# Number token syntax:
 
 %%
 
