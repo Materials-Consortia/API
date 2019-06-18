@@ -1,8 +1,5 @@
 $VAR1 = [
-          'filter=',
-          [
-            'author',
-            '=',
-            '"Sąžininga Žąsis"'
-          ]
+          'author',
+          '=',
+          '"Sąžininga Žąsis"'
         ];

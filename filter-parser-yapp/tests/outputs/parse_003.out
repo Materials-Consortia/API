@@ -1,8 +1,5 @@
 $VAR1 = [
-          'filter=',
-          [
-            '_cod_cell_volume',
-            '<',
-            '100.0'
-          ]
+          '_cod_cell_volume',
+          '<',
+          '100.0'
         ];

@@ -1,24 +1,21 @@
 $VAR1 = [
-          'filter=',
+          [
+            '_cod_melting_point',
+            '<',
+            '300'
+          ],
+          'AND',
           [
             [
-              '_cod_melting_point',
-              '<',
-              '300'
+              'nelements',
+              '=',
+              '4'
             ],
             'AND',
             [
-              [
-                'nelements',
-                '=',
-                '4'
-              ],
-              'AND',
-              [
-                'elements',
-                '=',
-                '"Si,O2"'
-              ]
+              'elements',
+              '=',
+              '"Si,O2"'
             ]
           ]
         ];
