@@ -1,0 +1,14 @@
+$VAR1 = [
+          [
+            'prototype_formula',
+            'STARTS',
+            '"B2"'
+          ],
+          'AND',
+          [
+            'prototype_formula',
+            'ENDS',
+            'WITH',
+            '"D2"'
+          ]
+        ];
