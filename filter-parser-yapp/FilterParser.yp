@@ -128,7 +128,7 @@ identifier_first_comparison: identifier value_op_rhs
 
 constant_first_comparison: constant value_op_rhs
                             {
-                                return [ @_[1..$#_] ];
+                                return [ $_[1], @{$_[2]} ];
                             }
                          ;
 
