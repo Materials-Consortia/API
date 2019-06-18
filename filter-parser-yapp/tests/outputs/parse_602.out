@@ -1,0 +1,5 @@
+$VAR1 = [
+          '_exmpl_some_string_property',
+          '=',
+          '42'
+        ];
